@@ -5,10 +5,10 @@
 
 ```
 So that I can choose available meals
-I want to flick through the available meal give-sways
+I want to flick through the available meal give-aways
 ```
 ```
-So that it quick to pick-up
+So that it is quick to pick-up my meal
 I want to narrow the search location
 ```
 ```
