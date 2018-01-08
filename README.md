@@ -1,7 +1,7 @@
-## Foodie App
+# Foodie App
 
 
-# As a User
+## As a User
 
 ```
 So that I can choose available meals
@@ -36,7 +36,7 @@ So that I can easily check for any questions
 I want to chat to restaurant managers via chatbot
 ```
 
-# As the restaurant Manager
+## As the restaurant Manager
 
 ```
 So that I can periodically update available takeaways
@@ -56,7 +56,7 @@ I want to receive their message via email if i'm not able to chat live
 ```
 
 
-#As the Maintainer of the system
+## As the Maintainer of the system
 
 ```
 So that the order of app is kept  
