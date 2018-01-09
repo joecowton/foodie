@@ -1,5 +1,6 @@
 const express = require('express');
 require('./services/passport');
+const authRoutes = require('./routes/authRoutes')
 
 const app = express(); //setup configuration to listen to incoming requests that are being
                       //routed to express side of app from node side and route
@@ -7,7 +8,7 @@ const app = express(); //setup configuration to listen to incoming requests that
                       //with app object
 
 
-
+authRoutes(app);
 
 
 
