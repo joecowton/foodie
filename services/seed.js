@@ -6,6 +6,7 @@ const Product = mongoose.model('products');
 
 new Product({
   title: 'Food',
-  quantity: '10',
+  quantity: '11',
   price: '10.50'
+
 }).save();
