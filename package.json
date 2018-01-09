@@ -19,6 +19,11 @@
   "homepage": "https://github.com/tabrza/foodie#readme",
   "devDependencies": {
     "chai": "^4.1.2",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
     "grunt": "^1.0.1",
     "grunt-webdriver": "^2.0.3",
     "mocha": "^4.1.0",
@@ -32,6 +37,7 @@
     "test": "test"
   },
   "dependencies": {
+    "chai-http": "^3.0.0",
     "express": "^4.16.2"
   },
   "description": ""
