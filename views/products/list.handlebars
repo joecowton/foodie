@@ -1,0 +1,9 @@
+<h1>Products</h1>
+{{#each products}}
+  <div class="card card-body mb-3 ">
+    <h4>{{title}}</h4>
+    <p>{{quantity}}</p>
+  </div>
+{{else}}
+<p> No products listed </p>
+{{/each}}
