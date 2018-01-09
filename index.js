@@ -1,4 +1,7 @@
 const express = require('express');
+const path = require('path');
+const exphbs = require('express-handlebars');
+
 const mongoose = require('mongoose');
 const keys = require('./config/keys')
 
@@ -8,6 +11,11 @@ require('./services/seed')
 require('./services/passport');
 
 
+const app = express();
+
+
+// Map global promise - get rid of warning
+mongoose.Promise = global.Promise;
 
 // connect to DB:
 mongoose.connect(keys.mongoURI, {
@@ -20,46 +28,46 @@ mongoose.connect(keys.mongoURI, {
   console.log(err);
 });
 
-const app = express();
 
-// Home page route.
-// app.get('/', function (req, res) {
-//   res.send('Wiki home page');
-// })
+//--- MIDDLEWARE : ---
+
+// Handlebars Middleware
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
 
 
-app.get('/', function(req, res){
-	Product.find({}, function(err, docs){
-		if(err) res.json(err);
-		else    res.render('index', {products: docs});
-	});
+
+
+// Home page route
+app.get('/', function (req, res) {
+  res.send('Wiki home page');
+})
+
+
+// app.get('/', function(req, res){
+// 	Product.find({}, function(err, docs){
+// 		if(err) res.json(err);
+// 		else    res.render('index', {products: docs});
+// 	});
+// });
+
+
+// Fetch all database objects:
+
+app.get('/products', function(req, res){
+  Product.find({})
+    .sort({date: 'desc'})
+    .then(function(products) {
+      res.render('products/list', {
+        products: products
+      });
+  });
 });
 
-// app.get('/', function(req, res){
-//   var all = Product.find({})
-//   // console.log(all)
-//   .then(function(products) {
-//     res.render('products/index', {
-//       products: products
-//     });
-//   });
-// });
 
-// app.get('/', function(req, res){
-//   Product.find({})
-//   console.log(products)
-//   .then(function(products) {
-//     res.render('products/index', {
-//       products: products
-//     });
-//   });
-// });
-// Load routes:
 require('./routes/authRoutes')(app);
-
-// // Map global promise - get rid of warning
-// mongoose.Promise = global.Promise;
-
 
 
 
