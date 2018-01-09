@@ -1,0 +1,38 @@
+{
+  "name": "foodie",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabrza/foodie.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tabrza/foodie/issues"
+  },
+  "homepage": "https://github.com/tabrza/foodie#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "grunt": "^1.0.1",
+    "grunt-webdriver": "^2.0.3",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.14.9",
+    "selenium-standalone": "^6.12.0",
+    "wdio-mocha-framework": "^0.5.12",
+    "wdio-selenium-standalone-service": "0.0.9",
+    "webdriverio": "^4.9.11"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "description": ""
+}
