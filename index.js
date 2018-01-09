@@ -3,8 +3,10 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 
 const mongoose = require('mongoose');
-const keys = require('./config/keys')
+const passport = require('passport');
 
+const keys = require('./config/keys')
+require('./models/user')
 require('./models/Product')
 const Product = mongoose.model('products');
 require('./services/seed')
@@ -38,8 +40,6 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 
-
-
 // Home page route
 app.get('/', function (req, res) {
   res.send('Wiki home page');
@@ -66,11 +66,10 @@ app.get('/products', function(req, res){
   });
 });
 
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('./routes/authRoutes')(app);
-
-
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
