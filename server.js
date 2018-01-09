@@ -1,30 +1,26 @@
 var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
 var mongoose = require('mongoose');
+var passport = require('passport');
 var keys = require('./config/keys')
+require('./models/user')
+require('./services/passport')
 
 mongoose.connect(keys.mongoURI);
-var db = mongoose.connection;
+var app = express();
+// var db = mongoose.connection;
+//
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function(){
+//   console.log('test');
+// });
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function(){
-  console.log('test');
-});
 
-app.get('/', function(request, response){
-  response.send("Hello world")
-});
-
-app.get('/auth/google', function(request, response){
-  response.send("hello");
-});
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 
 
-server.listen(5000, function(){
-  console.log("Server listening on port 5000");
-});
+require('./routes/authRoutes')(app);
 
-module.exports = server;
+app.listen(5000);
