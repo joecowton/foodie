@@ -1,6 +1,8 @@
 # Foodie App
 
-## MVP User Stories:
+## MVP
+
+### User Stories:
 
 ```
 So that I can choose available discounted products
@@ -11,6 +13,19 @@ I want to see all special offer, discounted and free products available
 So that it is convenient   
 I want to be able to use google account for log in
 ```
+### Check List
+
+- React Test Passing
+
+- Build simple react page:
+
+    - Display a list of Products
+    - Mongo DB simple schema
+    - Seed Database - .csv
+
+- Able to choose product (click/hover)
+
+- User sign-in 
 
 
 
