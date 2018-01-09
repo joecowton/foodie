@@ -1,9 +1,5 @@
 const express = require('express');
-const path = require('path');
-const exphbs = require('express-handlebars');
-const mongoose = require('mongoose');
 const passport = require('passport');
-const keys = require('./config/keys')
 
 require('./models/User')
 require('./models/Product')
