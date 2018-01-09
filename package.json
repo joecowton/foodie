@@ -23,6 +23,7 @@
   "homepage": "https://github.com/tabrza/foodie#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "fast-csv": "^2.4.1",
     "nodemon": "^1.14.9",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
