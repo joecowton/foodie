@@ -25,6 +25,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
     "grunt": "^1.0.1",
+    "grunt-selenium-standalone": "^1.0.1",
     "grunt-webdriver": "^2.0.3",
     "mocha": "^4.1.0",
     "nodemon": "^1.14.9",
@@ -39,7 +40,9 @@
   "dependencies": {
     "chai-http": "^3.0.0",
     "express": "^4.16.2",
-    "mongoose": "^4.13.9"
+    "mongoose": "^4.13.9",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
   },
   "description": ""
 }
