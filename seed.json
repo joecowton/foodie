@@ -1,0 +1,5 @@
+{
+	"undefined": "mongodb://foodie:foodie@ds247317.mlab.com:47317/foodie-dev",
+	"dev": "mongodb://foodie:foodie@ds247317.mlab.com:47317/foodie-dev",
+	"prod": "mongodb://foodie:foodie@ds247317.mlab.com:47317/foodie-dev"
+}
