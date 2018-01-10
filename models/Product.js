@@ -15,7 +15,7 @@ const ProductSchema = new Schema({
     type: String,
     required: true,
   },
-  dateAdded: {
+  addedDate: {
     type: Date,
     default: Date.now
   },
@@ -23,10 +23,13 @@ const ProductSchema = new Schema({
     type: Date,
     required: true
   },
-  // image: {
-  //   type: 
-
-  // }
-  
+  image: {
+    mime: String,
+    bin: Buffer
+  },
+  category: {
+    type: String,
+    required: true,
+  }
 });
 mongoose.model('products', ProductSchema);

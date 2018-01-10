@@ -6,7 +6,6 @@ require('./models/Product')
 
 const app = express();
 
-require('./services/seed')
 require('./services/passport');
 require('./services/mongoose');
 require('./services/handlebars')(app);

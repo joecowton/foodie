@@ -9,6 +9,7 @@ module.exports = function(grunt){
   })
 
   grunt.loadNpmTasks('grunt-webdriver');
+
   grunt.loadNpmTasks('grunt-selenium-standalone');
 
   grunt.registerTask('default', ['webdriver']);
