@@ -15,9 +15,18 @@ const ProductSchema = new Schema({
     type: String,
     required: true,
   },
-  date: {
+  dateAdded: {
     type: Date,
     default: Date.now
-  }
+  },
+  expiryDate: {
+    type: Date,
+    required: true
+  },
+  // image: {
+  //   type: 
+
+  // }
+  
 });
 mongoose.model('products', ProductSchema);
