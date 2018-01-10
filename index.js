@@ -4,17 +4,17 @@ const passport = require('passport');
 require('./models/User')
 require('./models/Product')
 
+const app = express();
+
 require('./services/seed')
 require('./services/passport');
 require('./services/mongoose');
-
-const app = express();
+require('./services/handlebars')(app);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
-require('./routes/handlebarsRoutes')(app);
 require('./routes/homepageRoutes')(app);
 require('./routes/productRoutes')(app);
 
