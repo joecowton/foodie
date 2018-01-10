@@ -11,7 +11,12 @@ const dummyLanding = () => <h2>Landing</h2>
 const App = function(){
   return (
     <div>
-    Hi there!
+      <BrowserRouter> // expects one child componentat most
+        <div>
+          //setting up routes
+          <Route path="/" component={dummyLanding} /> // home page route setup
+        <div/>
+      </BrowserRouter>
     </div>
   );
 };
