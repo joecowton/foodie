@@ -1,3 +1,5 @@
+// responsible for all the redux setup , datat setup
+
 import react from 'react';
 import reactDOM from 'react-dom';
 import { Provider } from 'react-redux';
