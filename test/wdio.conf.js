@@ -1,9 +1,4 @@
 exports.config = {
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> master
     //
     // ==================
     // Specify Test Files
@@ -81,11 +76,8 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-<<<<<<< HEAD
-    baseUrl: 'http://localhost',
-=======
-    baseUrl: 'http://localhost:5000/',
->>>>>>> master
+
+    baseUrl: 'http://localhost:/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -119,12 +111,12 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-<<<<<<< HEAD
+
     services: ['selenium-standalone'],
     //
-=======
+
     // services: [],//
->>>>>>> master
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: http://webdriver.io/guide/testrunner/frameworks.html
@@ -141,13 +133,10 @@ exports.config = {
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
-<<<<<<< HEAD
         ui: 'bdd',
         recursive: 'true',
         reporter: 'list'
-=======
-        ui: 'bdd'
->>>>>>> master
+
     },
     //
     // =====
@@ -188,11 +177,6 @@ exports.config = {
      */
     // beforeCommand: function (commandName, args) {
     // },
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> master
     /**
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details
@@ -229,11 +213,6 @@ exports.config = {
      */
     // afterSuite: function (suite) {
     // },
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> master
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
