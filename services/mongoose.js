@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+const keys = require('../config/keys')
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(keys.mongoURI, {
+  useMongoClient: true
+  })
+  .then( function() {
+    console.log('MongoDB Connected...');
+  })
+  .catch( function(err) {
+    console.log(err);
+});
