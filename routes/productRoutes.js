@@ -12,7 +12,7 @@ module.exports = app => {
     });
   });
 
-  app.get('/products/api', function(req, res){
+  app.get('/api/products', function(req, res){
     Product.find({})
       .sort({date: 'desc'})
       .then(function(products) {
