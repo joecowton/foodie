@@ -12,6 +12,13 @@ module.exports = app => {
     });
   });
 
+  app.get('/products/list', function(req, res){
+    Product.find({})
+      .sort({date: 'desc'})
+      .then(function(products) { res.json(products) });
+    });
+  };
+
   app.get('/', function(req, res){
   	Product.find({}, function(err, docs){
   		if(err) res.json(err);
