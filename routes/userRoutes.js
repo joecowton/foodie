@@ -4,6 +4,7 @@ const User = mongoose.model('users');
 module.exports = app => {
   // search by name
   app.get('/api/user/name/:name', function(req, res){
+    console.log(req.params.name);
     User.find({ name: req.params.name })
       .then(function(user) {
         res.json(user);

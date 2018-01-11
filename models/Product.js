@@ -17,7 +17,7 @@ const ProductSchema = new Schema({
   },
   addedDate: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   },
   expiryDate: {
     type: Date,

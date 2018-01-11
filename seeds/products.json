@@ -1,19 +1,22 @@
 [
   {
-    "title":"Crisps",
+    "title":"Chips",
     "quantity":"10",
     "price":"0.50",
     "dateAdded":"2018-01-10T11:12:42.595Z",
-    "expiryDate": "2018-01-10T11:12:42.595Z",
+    "expiryDate": "2018-01-15 ",
+    "category": "dairy",
     "image": "http://images.all-free-download.com/images/graphiclarge/crisps_bowl_salt_270282.jpg",
     "__v":0
   },
   {
-    "title":"Pie",
+    "title":"Chicken",
     "quantity":"10",
     "price":"1.20",
     "dateAdded":"2018-01-10T11:12:42.595Z",
-    "expiryDate": "2018-01-10T11:12:42.595Z",
+    "expiryDate": "2018-01-10",
+    "category": "meat",
+
     "image": "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.616.462.suffix/1382545039107.jpeg",
     "__v":0
   },
@@ -22,7 +25,9 @@
     "quantity":"10",
     "price":"0.50",
     "dateAdded":"2018-01-10T11:12:42.595Z",
-    "expiryDate": "2018-01-10T11:12:42.595Z",
+    "expiryDate": "2018-01-10",
+    "category": "fish",
+
     "image": "http://images.all-free-download.com/images/graphiclarge/crisps_bowl_salt_270282.jpg",
     "__v":0
   },
@@ -31,7 +36,9 @@
     "quantity":"10",
     "price":"1.20",
     "dateAdded":"2018-01-10T11:12:42.595Z",
-    "expiryDate": "2018-01-10T11:12:42.595Z",
+    "expiryDate": "2018-01-10",
+    "category": "dairy",
+
     "image": "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.616.462.suffix/1382545039107.jpeg",
     "__v":0
   }
