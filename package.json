@@ -34,7 +34,6 @@
     "grunt": "^1.0.1",
     "grunt-selenium-standalone": "^1.0.1",
     "grunt-webdriver": "^2.0.3",
-    "handlebars": "^4.0.11",
     "mocha": "^4.1.0",
     "node-mongo-seeds": "^2.3.2",
     "nodemon": "^1.14.9",

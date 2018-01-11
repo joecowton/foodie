@@ -10,7 +10,6 @@ const app = express();
 
 require('./services/passport');
 require('./services/mongoose');
-require('./services/handlebars')(app);
 
 app.use(
   cookieSession({
