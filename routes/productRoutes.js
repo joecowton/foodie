@@ -2,22 +2,41 @@ const mongoose = require('mongoose');
 const Product = mongoose.model('products');
 
 module.exports = app => {
-  // app.get('/products', function(req, res){
-  //   Product.find({})
-  //     .sort({expiryDate: 'desc'})
-  //     .then(function(products) {
-  //       res.render('products/list', {
-  //         products: products
-  //       });
-  //   });
-  // });
-
   app.get('/api/products', function(req, res){
     Product.find({})
       .sort({expiryDate: 'desc'})
       .then(function(products) {
-        res.json(products);
+        products.forEach(function(product){
+          res.json(product)
+        })
+    });
+  });
 
+  // app.get('/api/products', function(req, res){
+  //   Product.find({})
+  //     .sort({expiryDate: 'desc'})
+  //     .then(function(products) {
+  //       products.forEach(function(product){
+  //         if (product.expiryDate.toLocaleDateString() > new Date().toLocaleDateString())
+  //           {
+  //             console.log(product)
+  //             res.json(product)
+  //           }
+  //       })
+  //   });
+  // });
+  app.get('/api/products/categories/:category', function(req, res){
+    Product.find({ category: req.params.category})
+      .then((products) => {
+        res.json(products)
+      })
+  } )
+
+
+  app.delete('/api/products/delete/:title', function(req, res){
+    Product.remove({ title: req.params.title })
+      .then(() => {
+        console.log("deleted");
     });
   });
 
@@ -36,12 +55,4 @@ module.exports = app => {
         console.log("deleted");
     });
   });
-
-  // app.get('/', function(req, res){
-  // 	Product.find({}, function(err, docs){
-  // 		if(err) res.json(err);
-  // 		else    res.render('index', {products: docs});
-  // 	});
-  // });
-
 }
