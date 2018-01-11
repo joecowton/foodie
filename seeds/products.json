@@ -6,7 +6,7 @@
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-10T11:12:42.595Z",
     "image": "http://images.all-free-download.com/images/graphiclarge/crisps_bowl_salt_270282.jpg",
-    "category": "Snacks",
+    "category": "snacks",
     "__v":0
   },
   {
@@ -16,7 +16,7 @@
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-10T11:12:42.595Z",
     "image": "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.616.462.suffix/1382545039107.jpeg",
-    "category": "Desserts",
+    "category": "desserts",
     "__v":0
   },
   {
@@ -26,7 +26,7 @@
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-10T11:12:42.595Z",
     "image": "https://static.pexels.com/photos/102104/pexels-photo-102104.jpeg",
-    "category": "Fruits",
+    "category": "fruits",
     "__v":0
   },
   {
@@ -36,7 +36,7 @@
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-10T11:12:42.595Z",
     "image": "https://static.pexels.com/photos/38283/bananas-fruit-carbohydrates-sweet-38283.jpeg",
-    "category": "Fruits",
+    "category": "fruits",
     "__v":0
   },
   {
@@ -46,7 +46,7 @@
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-10T11:12:42.595Z",
     "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Carrots.JPG",
-    "category": "Vegetables",
+    "category": "vegetables",
     "__v":0
   },
   {
@@ -56,7 +56,7 @@
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-10T11:12:42.595Z",
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Ribeye-MCB-MaggieO.jpg",
-    "category": "Protein",
+    "category": "protein",
     "__v":0
   },
   {
@@ -66,7 +66,7 @@
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-10T11:12:42.595Z",
     "image": "https://groceries.morrisons.com/productImages/300/300335011_0_640x640.jpg?identifier=17d1fcf2e4a6ec32a3e0b5b9e313e6c8",
-    "category": "Protein",
+    "category": "protein",
     "__v":0
   },
   {
@@ -76,7 +76,7 @@
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-10T11:12:42.595Z",
     "image": "https://cdn0.woolworths.media/content/wowproductimages/large/015311.jpg",
-    "category": "Dairy",
+    "category": "dairy",
     "__v":0
   }
 ]
