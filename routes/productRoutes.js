@@ -7,7 +7,6 @@ module.exports = app => {
       .sort({expiryDate: 'desc'})
       .then(function(products) {
         res.json(products);
-
     });
   });
 
