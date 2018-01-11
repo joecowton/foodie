@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Product = mongoose.model('products');
+const User = mongoose.model('users');
 
 module.exports = app => {
   // app.get('/products', function(req, res){
@@ -28,6 +29,15 @@ module.exports = app => {
         res.json(products);
     });
   });
+
+  app.get('/api/user/:name', function(req, res){
+    User.find({ name: req.params.name })
+      .then(function(user) {
+        res.json(user);
+    });
+  });
+
+
 
 //sends delete request remember not to test in google
   app.delete('/api/products/delete/:title', function(req, res){
