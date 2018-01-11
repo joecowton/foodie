@@ -1,0 +1,30 @@
+[
+  {
+    "googleID":"123456789876543234",
+    "name":"fakename",
+    "phoneNumber":"2345622345",
+    "eMail":"fakename@gmail.com",
+    "preference":"vegan"
+  },
+  {
+    "googleID":"12789876543234",
+    "name":"Mr. Vegetarian",
+    "phoneNumber":"2355622345",
+    "eMail":"vegetarian@gmail.com",
+    "preference":"Vegetarian"
+  },
+  {
+    "googleID":"12345678543234",
+    "name":"none",
+    "phoneNumber":"2345632345",
+    "eMail":"none@gmail.com",
+    "preference":"none"
+  },
+  {
+    "googleID":"123456789876543234",
+    "name":"Gluten free",
+    "phoneNumber":"2345622345",
+    "eMail":"gfree@gmail.com",
+    "preference":"Gluten free"
+  }
+]
