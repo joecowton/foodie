@@ -3,6 +3,7 @@ const Product = mongoose.model('products');
 
 module.exports = app => {
   app.get('/api/products', function(req, res){
+    console.log(req.query.category);
     Product.find( {} )
       .sort( {expiryDate: 'desc'} )
       .then((products) => {
@@ -17,7 +18,6 @@ module.exports = app => {
         res.json(products)
       })
   })
-
 
   app.delete('/api/products/delete/:title', function(req, res){
     Product.remove({ title: req.params.title })
