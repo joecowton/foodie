@@ -18,7 +18,6 @@ module.exports = app => {
       })
   })
 
-
   app.delete('/api/products/delete/:title', function(req, res){
     Product.remove({ title: req.params.title })
       .then(() => {
