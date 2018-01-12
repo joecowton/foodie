@@ -60,7 +60,6 @@ constructor(props){
           <button onClick={() => this.filter('all')}>All</button>
           <button onClick={() => this.filter('dairy')}>Dairy</button>
           <button onClick={() => this.filter('protein')}>Protein</button> <br />
-          <a href="/auth/google">Sign In With Google</a>
           {selectionList}
           <ToggleDisplay show={this.state.hideList}>
             {productsList}
