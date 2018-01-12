@@ -3,11 +3,12 @@ const Product = mongoose.model('products');
 
 module.exports = app => {
   app.get('/api/products', function(req, res){
-    Product.find({})
-      .sort({expiryDate: 'desc'})
-      .then(function(products) {
-      res.json(products);
-    });
+    Product.find( {} )
+      .sort( {expiryDate: 'desc'} )
+      .then((products) => {
+        res.json(products)
+      })
+
   });
 
   app.get('/api/products/categories/:category', function(req, res){
@@ -15,7 +16,7 @@ module.exports = app => {
       .then((products) => {
         res.json(products)
       })
-  } )
+  })
 
 
   app.delete('/api/products/delete/:title', function(req, res){
