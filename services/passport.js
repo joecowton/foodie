@@ -25,9 +25,11 @@ passport.use(
     (accessToken, refreshToken, profile, done) => {
       const image = profile.photos[0].value.substring(0,
       profile.photos[0].value.indexOf('?'))
-
+      console.log(profile);
       const newUser = {
         googleID: profile.id,
+        name: profile.displayName,
+        
         image: image
       }
 
