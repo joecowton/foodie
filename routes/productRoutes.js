@@ -8,7 +8,7 @@ module.exports = app => {
       .then((products) => {
         res.json(products)
       })
-  
+
   });
 
   app.get('/api/products/categories/:category', function(req, res){
