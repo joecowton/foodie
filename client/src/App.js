@@ -4,6 +4,7 @@ import './App.css';
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import NavBar from './components/NavBar/NavBar'
+import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
 import SearchFilter from './components/Products/search-filter/SearchFilter'
 import ToggleDisplay from 'react-toggle-display';
@@ -39,28 +40,6 @@ constructor(props){
     this.props.fetchUser();
   }
 
-  createNotification = (type) => {
-  return () => {
-    switch (type) {
-      case 'info':
-        NotificationManager.info('Filter by all!');
-        break;
-      case 'success':
-        NotificationManager.success('Success message', 'Title here');
-        break;
-      case 'warning':
-        NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-        break;
-      case 'error':
-        NotificationManager.error('Error message', 'Click me!', 5000, () => {
-          alert('callback');
-        });
-        break;
-      }
-    };
-  };
-
-
   filter = string => {
     if (this.state.productsData) {
       this.state.selection = [];
@@ -86,33 +65,13 @@ constructor(props){
       products={this.state.selection}
       />
 
+      const alerts = <Alerts/>
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
 
 
       return (
         <div className="App">
-          <div>
-            <button className='btn btn-info'
-              onClick={this.createNotification('info')}>Info
-            </button>
-            <hr/>
-            <button className='btn btn-success'
-              onClick={this.createNotification('success')}>Success
-            </button>
-            <hr/>
-            <button className='btn btn-warning'
-              onClick={this.createNotification('warning')}>Warning
-            </button>
-            <hr/>
-            <button className='btn btn-danger'
-              onClick={this.createNotification('error')}>Error
-            </button>
-
-            <NotificationContainer/>
-          </div>
-
-
           <div className ="container">
             <BrowserRouter>
               <div>
@@ -128,9 +87,8 @@ constructor(props){
           <p>Hello</p>
           {navBar}
           {searchFilter}
-          <button
-            onClick={() => this.filter('all'), this.createNotification('info')}>All
-          </button>
+          {alerts}
+          <button onClick={() => this.filter('all')}>All</button>
           <button onClick={() => this.filter('dairy')}>Dairy</button>
           <button onClick={() => this.filter('protein')}>Protein</button> <br />
           {selectionList}
