@@ -4,6 +4,7 @@ import './App.css';
 import 'react-notifications/lib/notifications.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import NavBar from './components/NavBar/NavBar'
+import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
 import SearchFilter from './components/Products/search-filter/SearchFilter'
 import ToggleDisplay from 'react-toggle-display';
@@ -98,33 +99,13 @@ constructor(props){
       products={this.state.selection}
       />
 
+      const alerts = <Alerts/>
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
 
 
       return (
         <div className="App">
-          <div>
-            <button className='btn btn-info'
-              onClick={this.createNotification('info')}>Info
-            </button>
-            <hr/>
-            <button className='btn btn-success'
-              onClick={this.createNotification('success')}>Success
-            </button>
-            <hr/>
-            <button className='btn btn-warning'
-              onClick={this.createNotification('warning')}>Warning
-            </button>
-            <hr/>
-            <button className='btn btn-danger'
-              onClick={this.createNotification('error')}>Error
-            </button>
-
-            <NotificationContainer/>
-          </div>
-
-
           <div className ="container">
             <BrowserRouter>
               <div>
@@ -157,6 +138,8 @@ constructor(props){
 
 
           {searchFilter}
+
+        {alerts}
           <button
             onClick={() => this.filter1('all'), this.createNotification('info')}>All
           </button>
