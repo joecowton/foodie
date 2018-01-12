@@ -6,9 +6,7 @@ module.exports = app => {
     Product.find({})
       .sort({expiryDate: 'desc'})
       .then(function(products) {
-        products.forEach(function(product){
-          res.json(product)
-        })
+      res.json(products);
     });
   });
 
