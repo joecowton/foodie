@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Product = mongoose.model('products');
 
 module.exports = app => {
   app.get('/api/products', function(req, res){
@@ -41,4 +40,23 @@ module.exports = app => {
         console.log("deleted");
     });
   });
+
+  // async function test() {
+    // await
+
+  // }
+  //
+  // var user = new User({googleID:"1232432", name: 'eh'});
+  // console.log("HEHREHREHHE",user)
+  //
+  // // console.log('RODUUCUCUT', product)
+  // // product.save();
+  // user.wishlist.push( new Product({
+  //   title: 'testfood',
+  //   quantity: '10',
+  //   price: '10.50',
+  //   category: 'Vodka tonight'
+  // }))
+  // console.log("wishlist user", user)
+  // user.save();
 }
