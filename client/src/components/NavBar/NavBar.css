@@ -1,0 +1,11 @@
+.NavBar {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+@media (min-width:500px){
+  .Product {
+    width:350px;
+  }
+}
