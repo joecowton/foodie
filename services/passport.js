@@ -23,6 +23,15 @@ passport.use(
       proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
+      const image = profile.photos[0].value.substring(0,
+      profile.photos[0].value.indexOf('?'))
+
+      const newUser = {
+        googleID: profile.id,
+        image: image
+      }
+
+
       User.findOne({ googleID: profile.id })
       .then((existingUser) => {
         if(existingUser) {

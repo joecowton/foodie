@@ -6,20 +6,24 @@ const userSchema = new Schema({
   googleID: String,
   name: {
     type: String,
-    required: true,
+    required: false,
   },
   phoneNumber: {
     type: Number,
-    required: true,
+    required: false,
   },
-  eMail: {
+  email: {
     type: String,
-    required: true,
+    required: false,
   },
   preference: {
     type: String,
     required: false,
   },
+  image: {
+    type: String,
+    required: false,
+  }
 });
 
 mongoose.model('users', userSchema);
