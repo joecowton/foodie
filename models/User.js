@@ -4,22 +4,6 @@ const { Schema } = mongoose;
 // comment
 const userSchema = new Schema({
   googleID: String,
-  name: {
-    type: String,
-    required: true,
-  },
-  phoneNumber: {
-    type: Number,
-    required: true,
-  },
-  eMail: {
-    type: String,
-    required: true,
-  },
-  preference: {
-    type: String,
-    required: false,
-  },
 });
 
 mongoose.model('users', userSchema);
