@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 // comment
 const userSchema = new Schema({
   googleID: String,
+<<<<<<< HEAD
   name: {
     type: String,
     required: false,
@@ -24,6 +25,8 @@ const userSchema = new Schema({
     type: String,
     required: false,
   }
+=======
+>>>>>>> ee69649d784d7ec04dab70e8134bb513c1635c79
 });
 
 mongoose.model('users', userSchema);
