@@ -3,8 +3,8 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 
-require('./models/User')
 require('./models/Product')
+require('./models/User')
 
 const app = express();
 
@@ -25,6 +25,9 @@ require('./routes/authRoutes')(app);
 require('./routes/homepageRoutes')(app);
 require('./routes/productRoutes')(app);
 require('./routes/userRoutes')(app);
+
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
