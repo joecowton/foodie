@@ -4,7 +4,7 @@
     "name":"fakename",
     "phoneNumber":"2345622345",
     "eMail":"fakename@gmail.com",
-    "preference":"vegan"
+    "preference":"Vegan"
   },
   {
     "googleID":"12789876543234",
@@ -15,16 +15,16 @@
   },
   {
     "googleID":"12345678543234",
-    "name":"none",
+    "name":"None",
     "phoneNumber":"2345632345",
     "eMail":"none@gmail.com",
-    "preference":"none"
+    "preference":"None"
   },
   {
     "googleID":"123456789876543234",
     "name":"Gluten free",
     "phoneNumber":"2345622345",
     "eMail":"gfree@gmail.com",
-    "preference":"Gluten free"
+    "preference":"Gluten-free"
   }
 ]
