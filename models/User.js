@@ -23,7 +23,7 @@ const userSchema = new Schema({
   image: {
     type: String,
     required: false,
-  }
+  },
 });
 
 mongoose.model('users', userSchema);
