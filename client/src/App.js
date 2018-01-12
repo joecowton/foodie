@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom'
 import './App.css';
+import 'react-notifications/lib/notifications.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import NavBar from './components/NavBar/NavBar'
 import Products from './components/Products/Products'
 import SearchFilter from './components/Products/search-filter/SearchFilter'
 import ToggleDisplay from 'react-toggle-display';
 import { connect } from 'react-redux';
 import * as actions from './actions';
+
 
 
 const Header = () => <h2>Header</h2>
@@ -36,38 +39,53 @@ constructor(props){
     this.props.fetchUser();
   }
 
-  searchText = e => {
-    e.preventDefault();
 
-    var searchFilter = e.target.value;
+  createNotification = (type) => {
+  return () => {
+    switch (type) {
+      case 'info':
+        NotificationManager.info('Filter by all!');
+        break;
+      case 'success':
+        NotificationManager.success('Success message', 'Title here');
+        break;
+      case 'warning':
+        NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+        break;
+      case 'error':
+        NotificationManager.error('Error message', 'Click me!', 5000, () => {
+          alert('callback');
+        });
+        break;
+      }
+    };
+  };
 
-    // dont search unless 3 characters have been entered  
-    if(searchFilter.length < 3){
-      return;
+
+  filter1 = string => {
+    if (this.state.productsData) {
+      this.state.selection = [];
+      this.state.productsData.map( product => {
+        if(product.category === string || string === 'all'){
+          this.state.selection.push(product);
+        };
+        this.setState({filterSel: this.state.selection, hideList: false});
+      });
+    } else {
+      return <p> No Dairy Products available</p>
     }
-
-    //console.log( e.target.value );
-
-    fetch('/api/products/' + searchFilter)
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          productsData: data
-        })
-      })
   }
 
   filter = searchFilter => {
     fetch('/api/products/' + searchFilter)
       .then(data => data.json())
       .then(data => {
-        
+
         this.setState({
           productsData: data
         })
       })
-    
-}
+    }
   render() {
     if (!this.state.productsData) {
       return <p> Loading Products...</p>
@@ -83,8 +101,30 @@ constructor(props){
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
 
+
       return (
         <div className="App">
+          <div>
+            <button className='btn btn-info'
+              onClick={this.createNotification('info')}>Info
+            </button>
+            <hr/>
+            <button className='btn btn-success'
+              onClick={this.createNotification('success')}>Success
+            </button>
+            <hr/>
+            <button className='btn btn-warning'
+              onClick={this.createNotification('warning')}>Warning
+            </button>
+            <hr/>
+            <button className='btn btn-danger'
+              onClick={this.createNotification('error')}>Error
+            </button>
+
+            <NotificationContainer/>
+          </div>
+
+
           <div className ="container">
             <BrowserRouter>
               <div>
@@ -99,23 +139,33 @@ constructor(props){
 
           <p>Hello</p>
           {navBar}
+
           {/* {searchFilter} */}
 
           <div className="container">
-         
+
           <label className="searchLabel" >What are you looking for ?</label>
             <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
-            
+
             <div>
               <button className="btn btn-success quickSearch" onClick={() => this.filter('vegan')}>Vegan</button>
               <button className="btn btn-success quickSearch" onClick={() => this.filter('vegetarian')}>Vegetarian</button>
               <button className="btn btn-success quickSearch" onClick={() => this.filter('dairy free')}>Dairy Free</button>
               <button className="btn btn-success quickSearch" onClick={() => this.filter('gluten free')}>Gluten Free</button>
               <button className="btn btn-success quickSearch" onClick={() => this.filter('low fat')}>Low Fat</button> <br />
-            </div> 
-         
-            {productsList}
-          
+            </div>
+
+
+          {searchFilter}
+          <button
+            onClick={() => this.filter1('all'), this.createNotification('info')}>All
+          </button>
+          <button onClick={() => this.filter1('dairy')}>Dairy</button>
+          <button onClick={() => this.filter1('protein')}>Protein</button> <br />
+          {selectionList}
+          <ToggleDisplay show={this.state.hideList}>
+          {productsList}
+          </ToggleDisplay>
           </div>
         </div>
       )
