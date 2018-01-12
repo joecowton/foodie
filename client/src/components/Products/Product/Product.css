@@ -1,0 +1,15 @@
+.Product {
+  background: linear-gradient(gray, white, gray); /* Standard syntax */
+  width: 50%;
+  color: black;
+  margin: 16px auto;
+  border: 1px solid #bbb;
+  box-shadow: 0 2px 2px #fff;
+  padding: 10px;
+}
+
+@media (min-width:500px){
+  .Product {
+    width:350px;
+  }
+}
