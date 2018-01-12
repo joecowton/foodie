@@ -3,6 +3,7 @@ const Product = mongoose.model('products');
 
 module.exports = app => {
   app.get('/api/products', function(req, res){
+    console.log(req.query.category);
     Product.find( {} )
       .sort( {expiryDate: 'desc'} )
       .then((products) => {
