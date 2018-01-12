@@ -3,6 +3,7 @@ const Product = mongoose.model('products');
 
 module.exports = app => {
   app.get('/api/products', function(req, res){
+    console.log(req.query);
     Product.find( {} )
       .sort( {expiryDate: 'desc'} )
       .then((products) => {
@@ -17,6 +18,20 @@ module.exports = app => {
         res.json(products)
       })
   })
+
+
+// multi-field filter search :
+    app.get('/api/products?', function(req, res){
+      if(param === req.query.category){
+      // console.log(req.query.category);
+      Product.find({category: req.query.category})
+    } if(param === req.query.price){
+      Product.find({price: req.query.price})
+    }
+      .then((products) => {
+        res.render(products)
+    })
+  });
 
 
   app.delete('/api/products/delete/:title', function(req, res){

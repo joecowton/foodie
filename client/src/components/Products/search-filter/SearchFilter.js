@@ -10,8 +10,8 @@ const SearchFilter = (props) => {
         <form>
         <h5>
           <div className="form-group">
-            <label htmlFor="type">By Type </label>
-            <input type="text" className="form-control" name="type" /><br />
+            <label htmlFor="category">By Type </label>
+            <input type="text" className="form-control" name="category" /><br />
             <label htmlFor="price">By Price </label>
             <input type="text" className="form-control" name="price" />
           </div>
