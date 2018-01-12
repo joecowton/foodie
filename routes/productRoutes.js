@@ -10,19 +10,6 @@ module.exports = app => {
     });
   });
 
-  // app.get('/api/products', function(req, res){
-  //   Product.find({})
-  //     .sort({expiryDate: 'desc'})
-  //     .then(function(products) {
-  //       products.forEach(function(product){
-  //         if (product.expiryDate.toLocaleDateString() > new Date().toLocaleDateString())
-  //           {
-  //             console.log(product)
-  //             res.json(product)
-  //           }
-  //       })
-  //   });
-  // });
   app.get('/api/products/categories/:category', function(req, res){
     Product.find({ category: req.params.category})
       .then((products) => {
