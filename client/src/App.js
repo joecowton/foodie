@@ -59,8 +59,8 @@ constructor(props){
 
       return (
         <div className="App">
-      
-          <p>Hello</p>
+          <h1>Welcome to foddie</h1>
+          <p>Reduce waste, save money!</p>
           {navBar}
           {searchFilter}
           <button onClick={() => this.filter('all')}>All</button>
