@@ -9,28 +9,26 @@ class NavBar extends Component {
         return;
       case false:
         return (
-          <li><a href="/auth/google">Login With Google</a></li>
+          <a href="/auth/google">Login With Google</a>
         )
       default:
-        return <li><a href="/api/logout">Logout</a></li>
-
+        return <a href="/api/logout">Logout</a>
     }
   }
 
-  render() {
-    console.log(this.props.auth);
+  user(){
+    return this.props.auth ? 'Logged in as ' + this.props.auth.name : ''
+  }
 
+  render() {
     return (
       <nav className="NavBar">
         <div className="navbar navbar-expand-sm navbar-dark bg-secondary mb-5">
-            <a className="navbar-brand" href="/">Foodie</a>
-            <a className="navbar-brand" href="/"> Products </a>
-            <a className="navbar-brand" href="/api/current_user"> Profile </a>
-            <a className="navbar-brand" href="/auth/google"> Sign In With Google </a>
-            <a className="navbar-brand" href="/api/logout"> Logout </a>
-            <ul className="right">
-              {this.renderContent()}
-            </ul>
+            <li className="navbar-brand" href="/">Foodie</li>
+            <li className="navbar-brand" href="/"> Products </li>
+            <li className="navbar-brand" href="/user"> Profile </li>
+            <li className="navbar-brand">{this.renderContent()}</li>
+            <li className="navbar-brand">  {this.user()}</li>
         </div>
       </nav>
     )

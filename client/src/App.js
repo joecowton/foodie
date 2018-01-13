@@ -9,14 +9,6 @@ import SearchFilter from './components/Products/search-filter/SearchFilter'
 import ToggleDisplay from 'react-toggle-display';
 import { connect } from 'react-redux';
 import * as actions from './actions';
-import Landing from './Landing'
-
-
-
-const Header = () => <h2>Header</h2>
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
-
 
 class App extends Component {
 
@@ -25,7 +17,6 @@ constructor(props){
   this.state = {
     selection: [],
     productsData: null,
-    user: this.props.auth || null
   }
 }
 
@@ -38,14 +29,13 @@ constructor(props){
         })
       })
     this.props.fetchUser();
-
   }
 
 
   filter1 = string => {
     if (this.state.productsData) {
       this.state.selection = [];
-      this.state.productsData.map( product => {
+      this.state.productsData.map( (product) => {
         if(product.category === string || string === 'all'){
           this.state.selection.push(product);
         };
@@ -70,7 +60,6 @@ constructor(props){
     if (!this.state.productsData) {
       return <p> Loading Products...</p>
     } else {
-      console.log(this.state);
 
       const productsList = <Products
         products={this.state.productsData}
@@ -78,23 +67,17 @@ constructor(props){
       const selectionList = <Products
       products={this.state.selection}
       />
-
-
+      console.log(this.props);
       const alerts = <Alerts/>
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
       const user = <User />
-
 
       return (
         <div className="App">
           <div className ="container">
             <BrowserRouter>
               <div>
-                <Header />
-                <Route exact={true} path="/" component={Landing} />
-                <Route exact={true} path="/surveys" component={Dashboard} />
-                <Route path="/surveys/new" component={SurveyNew} />
               </div>
             </BrowserRouter>
             </div>
@@ -139,8 +122,5 @@ constructor(props){
   }
 }
 
-function mapStateToProps({auth}) {
-  return { auth }
-}
 
 export default connect(null, actions)(App);

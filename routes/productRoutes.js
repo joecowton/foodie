@@ -5,8 +5,9 @@ const TescoAPI = require("tesco-api-node");
 const api = new TescoAPI("b251645b90664ac2bd23ab96dcb0089d");
 
 module.exports = app => {
+
   app.get('/api/products/:search', function(req, res){
-    
+
     var search = req.params.search
     var query = search == "default" ? "nestle" : search;
     console.log("Searching for  >>>> ", query)
@@ -22,8 +23,16 @@ module.exports = app => {
 
       console.log("RESULTS>>>>>", tescoProducts);
 
+  // app.get('/api/products', function(req, res){
+  //   Product.find( {} )
+  //     .sort( {expiryDate: 'desc'} )
+  //     .then((products) => {
+  //       res.json(products)
+  //     })
+
+
       res.json(tescoProducts);
-      
+
     })
     .catch((err) => {
       console.log(err);
