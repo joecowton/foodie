@@ -25,6 +25,7 @@ require('./routes/authRoutes')(app);
 require('./routes/homepageRoutes')(app);
 require('./routes/productRoutes')(app);
 require('./routes/userRoutes')(app);
+require('./routes/wishlistRoutes')(app);
 
 
 
