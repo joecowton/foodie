@@ -4,10 +4,17 @@ import { connect } from 'react-redux';
 class User extends Component {
   render(){
     console.log(this.props.auth)
+    if(this.props.auth){
     return (
-      <a className="navbar-brand" href="/">Foodie</a>
-
+      <User
+        name={this.props.auth.name}
+      />
     )
+      }
+      else {
+        return null;
+      }
+  
   }
 }
 
