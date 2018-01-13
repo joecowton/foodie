@@ -66,12 +66,11 @@ constructor(props){
           <div className ="container">
             <BrowserRouter>
               <div>
+                {user}
+                {navBar}
               </div>
             </BrowserRouter>
           </div>
-
-          {user}
-          {navBar}
           {searchFilter}
           {alerts}
           <button onClick={() => this.filter('all')}>All</button>
