@@ -54,12 +54,12 @@ constructor(props){
       return <p> Loading Products...</p>
     } else {
 
-      const productsList = <Products
+      const productsList = <div className = "wrapper"><Products
         products={this.state.productsData}
-      />
-      const selectionList = <Products
+      /></div>
+      const selectionList = <div className = "wrapper"><Products
       products={this.state.selection}
-      />
+      /></div>
 
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
