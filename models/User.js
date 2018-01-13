@@ -27,7 +27,7 @@ const userSchema = new Schema({
     required: false,
   },
   product_id: [{
-    type: Number, ref: 'products'
+    type: String, ref: 'products'
   }]
 });
 
