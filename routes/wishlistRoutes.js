@@ -4,8 +4,8 @@ const Product = mongoose.model('products');
 
 
 
-// module.exports = app => {
-//   app.post('/api/addwishlist', function(req, res){
-//     console.log(req.body);
-//   });
-// }
+module.exports = app => {
+  app.post('/api/addwishlist', function(req, res){
+    console.log(req);
+  });
+}
