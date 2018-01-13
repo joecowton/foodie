@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const products = mongoose.model('products');
-require('./Product')
+// require('./Product')
 // const Schema = mongoose.Schema;  same as line below
 const { Schema } = mongoose;
 // comment
@@ -26,8 +26,8 @@ const userSchema = new Schema({
     type: String,
     required: false,
   },
-  wishlist: [{
-    type: mongoose.Schema.Types.ObjectId, ref: 'products'
+  product_id: [{
+    type: Number, ref: 'products'
   }]
 });
 
