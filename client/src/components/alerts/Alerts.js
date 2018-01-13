@@ -7,6 +7,8 @@ class Alerts extends Component {
   createNotification = (type) => {
   return () => {
     switch (type) {
+      default:
+        break;
       case 'info':
         NotificationManager.info('Filter by all!');
         break;

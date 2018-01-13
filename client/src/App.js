@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom'
 import './App.css';
-import 'react-notifications/lib/notifications.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 import NavBar from './components/NavBar/NavBar'
 import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
