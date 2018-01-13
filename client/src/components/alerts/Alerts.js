@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { connect } from 'react-redux';
+
 import 'react-notifications/lib/notifications.css';
 
 
@@ -27,6 +29,8 @@ class Alerts extends Component {
     };
   };
   render() {
+    console.log(this.props.auth);
+
     return(
       <div className="App">
         <div>

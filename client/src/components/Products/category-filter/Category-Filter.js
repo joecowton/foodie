@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class CategoryFilter extends Component  {
-
 filter = string => {
     if (this.state.productsData) {
       this.state.selection = [];
