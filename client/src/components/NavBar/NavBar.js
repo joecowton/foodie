@@ -4,15 +4,18 @@ import './NavBar.css';
 
 class NavBar extends Component {
   renderContent() {
-    switch(this.props.auth){
+    switch(this.props.auth) {
       case null:
         return;
       case false:
-        return (
-          <a href="/auth/google">Login With Google</a>
-        )
+        return <a className="navbar-brand" href="/auth/google"> Sign In With Google </a>
       default:
-        return <a href="/api/logout">Logout</a>
+       return (
+         <div>
+           <a className="navbar-brand" href="/api/current_user"> Profile </a>
+           <a className="navbar-brand" href="/api/logout"> Logout </a>
+         </div>
+       )
     }
   }
 
@@ -21,22 +24,21 @@ class NavBar extends Component {
   }
 
   render() {
-    return (
+    return(
       <nav className="NavBar">
         <div className="navbar navbar-expand-sm navbar-dark bg-secondary mb-5">
-            <li className="navbar-brand" href="/">Foodie</li>
-            <li className="navbar-brand" href="/"> Products </li>
-            <li className="navbar-brand" href="/user"> Profile </li>
-            <li className="navbar-brand">{this.renderContent()}</li>
-            <li className="navbar-brand">  {this.user()}</li>
+          <a className="navbar-brand" href="/">Foodie</a>
+          <a className="navbar-brand" href="/"> Products </a>
+          {this.renderContent()}
+          {this.user()}
         </div>
       </nav>
     )
   }
 }
 
-function mapStateToProps({auth}) {
-  return { auth }
+function mapStateToProps({ auth }) {
+  return { auth };
 }
 
-export default connect(mapStateToProps) (NavBar);
+export default connect(mapStateToProps)(NavBar);
