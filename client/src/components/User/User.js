@@ -3,11 +3,21 @@ import { connect } from 'react-redux';
 
 class User extends Component {
   render(){
-    console.log(this.props.auth)
-    return (
-      <a className="navbar-brand" href="/">Foodie</a>
+    if(this.props.auth){
+      console.log(this.props.auth._id)
+      return (
+        <div className='User'>
+            <p><img style={{width: 100, height: 100}} src={this.props.auth.image}></img></p>
+            <p>Name: {this.props.auth.name}</p>
+            <p>Email: {this.props.auth.email}</p>
+            <p>Diet: {this.props.auth.diet}</p>
+        </div>
+      )
+      }
+      else {
+        return null;
+      }
 
-    )
   }
 }
 

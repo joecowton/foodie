@@ -24,7 +24,8 @@ constructor(props){
   super(props);
   this.state = {
     selection: [],
-    productsData: null
+    productsData: null,
+    user: this.props.auth || null
   }
 }
 
@@ -37,6 +38,7 @@ constructor(props){
         })
       })
     this.props.fetchUser();
+
   }
 
 
@@ -135,6 +137,10 @@ constructor(props){
       )
        }
   }
+}
+
+function mapStateToProps({auth}) {
+  return { auth }
 }
 
 export default connect(null, actions)(App);
