@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import './NavBar.css';
 
 class NavBar extends Component {
@@ -18,6 +18,8 @@ class NavBar extends Component {
   }
 
   render() {
+    console.log(this.props.auth);
+
     return (
       <nav className="NavBar">
         <div className="navbar navbar-expand-sm navbar-dark bg-secondary mb-5">

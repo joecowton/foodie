@@ -4,6 +4,7 @@ import './SearchFilter.css';
 const SearchFilter = (props) => {
 
   return (
+
     <div className="SearchFilter">
       <div className="card card-body">
         <h4>Filter Product Search</h4>
