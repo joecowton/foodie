@@ -10,10 +10,8 @@ const Products =  (props) => props.products.map( (product) => {
         name: product.title
     })
     .then(function(response) {
-      console.log(response)
     })
     .catch(function(error) {
-      console.log(error)
     });
   }
 

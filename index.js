@@ -2,6 +2,8 @@ const express = require('express');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+var bodyParser = require('body-parser')
+
 
 require('./models/Product')
 require('./models/User')
@@ -20,6 +22,14 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
+
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
 
 require('./routes/authRoutes')(app);
 require('./routes/homepageRoutes')(app);
