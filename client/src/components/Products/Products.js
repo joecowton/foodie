@@ -7,7 +7,7 @@ const Products =  (props) => props.products.map( (product) => {
 
   function addToWishlist(product){
     axios.post('/api/addwishlist', {
-        name: product.title
+        id: `${product.id}`
     })
     .then(function(response) {
     })
