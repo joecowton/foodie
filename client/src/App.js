@@ -78,13 +78,11 @@ constructor(props){
           <div className ="container">
             <BrowserRouter>
               <div>
+                {user}
+                {navBar}
               </div>
             </BrowserRouter>
             </div>
-
-
-          <p>Hello</p>
-          {navBar}
 
           {/* {searchFilter} */}
 
@@ -100,10 +98,6 @@ constructor(props){
               <button className="btn btn-success quickSearch" onClick={() => this.filter('gluten free')}>Gluten Free</button>
               <button className="btn btn-success quickSearch" onClick={() => this.filter('low fat')}>Low Fat</button> <br />
             </div>
-            {user}
-
-
-          {searchFilter}
 
         {alerts}
           <button
