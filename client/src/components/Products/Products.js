@@ -1,9 +1,24 @@
 import React from 'react';
 import Product from './Product/Product';
+import axios from 'axios';
 
 
 const Products =  (props) => props.products.map( (product) => {
+
+  function addToWishlist(product){
+    axios.post('/api/addwishlist', {
+        name: product.title
+    })
+    .then(function(response) {
+      console.log(response)
+    })
+    .catch(function(error) {
+      console.log(error)
+    });
+  }
+
   return (
+    <div>
     <Product
     image={product.image}
     name={product.title}
@@ -12,6 +27,8 @@ const Products =  (props) => props.products.map( (product) => {
     date={product.expiryDate}
     key={product.id}
     />
+    <button onClick={() => addToWishlist(product)}>LOVE IT</button>
+    </div>
   )
 })
 export default Products
