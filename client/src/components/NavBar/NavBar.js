@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 class NavBar extends Component {
@@ -23,8 +24,8 @@ class NavBar extends Component {
     return(
       <nav className="NavBar">
         <div className="navbar navbar-expand-sm navbar-dark bg-secondary mb-5">
-          <a className="navbar-brand" href="/">Foodie</a>
-          <a className="navbar-brand" href="/"> Products </a>
+          <Link className="navbar-brand" to="/">Foodie</Link>
+          <Link className="navbar-brand" to="/"> Products </Link>
           {this.renderContent()}
         </div>
       </nav>
