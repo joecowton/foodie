@@ -1,8 +1,9 @@
 [
   {
+    "id": 1,
     "title":"Chips",
-    "quantity":"10",
-    "price":"0.50",
+    "quantity":10,
+    "price":0.50,
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-15 ",
     "category": "dairy",
@@ -11,9 +12,10 @@
     "__v":0
   },
   {
+    "id": 2,
     "title":"Chicken",
-    "quantity":"10",
-    "price":"1.20",
+    "quantity":10,
+    "price":1.20,
     "dateAdded":"2018-01-10T11:12:42.595Z",
     "expiryDate": "2018-01-10",
     "category": "meat",
@@ -22,6 +24,7 @@
     "__v":0
   },
   {
+    "id": 3,
     "title":"Apple",
     "quantity":10,
     "price":0.25,
@@ -32,6 +35,7 @@
     "__v":0
   },
   {
+    "id": 4,
     "title":"Banana",
     "quantity":10,
     "price":0.25,
@@ -42,6 +46,7 @@
     "__v":0
   },
   {
+    "id": 5,
     "title":"Carrot",
     "quantity":10,
     "price":0.20,
@@ -52,6 +57,7 @@
     "__v":0
   },
   {
+    "id": 6,
     "title":"Steak",
     "quantity":10,
     "price":5.20,
@@ -62,6 +68,7 @@
     "__v":0
   },
   {
+    "id": 7,
     "title":"Chicken",
     "quantity":10,
     "price":3.20,
@@ -72,6 +79,7 @@
     "__v":0
   },
   {
+    "id": 8,
     "title":"Milk",
     "quantity":10,
     "price":2.20,
