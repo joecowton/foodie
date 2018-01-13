@@ -13,7 +13,7 @@ class NavBar extends Component {
       default:
        return (
          <div>
-           <a className="navbar-brand" href="/api/current_user"> Profile </a>
+           <Link className="navbar-brand" to="/user"> Profile </Link>
            <a className="navbar-brand" href="/api/logout"> Logout </a>
          </div>
        )
