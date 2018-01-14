@@ -4,7 +4,6 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import User from './components/User/User'
 import Prod from './components/User/Prod'
-import Product from './components/Products/Product'
 import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
 import SearchFilter from './components/Products/search-filter/SearchFilter'
