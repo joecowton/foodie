@@ -3,7 +3,7 @@ import Product from './Product/Product';
 
 
 const Products =  (props) => props.products.map( (product) => {
-
+console.log(props);
   return (
     <Product
     image={product.image}

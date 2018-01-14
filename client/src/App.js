@@ -15,26 +15,17 @@ class App extends Component {
 
 constructor(props){
   super(props);
-  this.props.fetchUser();
-  this.props.fetchData();
+
   this.state = {
     selection: [],
     productsData: this.props.data,
   }
-  console.log(this.state);
+  console.log(this.props.data);
 }
 
   componentDidMount(){
-    console.log(this.props.data);
-    fetch('/api/products')
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          productsData: data
-        })
-      })
-
-
+    this.props.fetchUser();
+    this.props.fetchData();
   }
 
   filter = string => {
@@ -55,11 +46,11 @@ constructor(props){
     //   return <p> Loading Products...</p>
     // } else {
 
-      const productsList = <Prod
+      const productsList = <Products
         prod={this.state.productsData}
       />
-      const selectionList = <Prod
-      prod={this.state.selection}
+      const selectionList = <Products
+      products={this.state.selection}
       />
       console.log(this.props);
       const alerts = <Alerts/>
@@ -92,6 +83,7 @@ constructor(props){
       );
     }
   }
+
 
 
 
