@@ -55,41 +55,37 @@ constructor(props){
       const selectionList = <Products
       products={this.state.selection}
       />
-      console.log(this.props);
+
       const alerts = <Alerts/>
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
-      const user = <User />
+      const user = () => <User />
+
+    const productsAndFilters = () => <div>
+      {searchFilter}
+      {alerts}
+      <button onClick={() => this.filter('all')}>All</button>
+      <button onClick={() => this.filter('dairy')}>Dairy</button>
+      <button onClick={() => this.filter('protein')}>Protein</button> <br />
+      {selectionList}
+      <ToggleDisplay show={this.state.hideList}>
+        {productsList}
+      </ToggleDisplay>
+    </div>
+
+
 
       return (
         <div className="App">
           <div className ="container">
             <BrowserRouter>
               <div>
-                <Route exact={true} path="/user">
-                  <div>
-                    <NavBar></NavBar>
-                    <User></User>
-                  </div>
-                </Route>
-                <Route exact={true} path="/">
-                  <div>
-                    <h2>Landing Page</h2>
-                    <h4>HELLO</h4>
-                  </div>
-                </Route>
+                {navBar}
+                <Route exact={true} path="/" component={productsAndFilters}/>
+                <Route exact={true} path="/user" component={user} />
               </div>
             </BrowserRouter>
           </div>
-          {searchFilter}
-          {alerts}
-          <button onClick={() => this.filter('all')}>All</button>
-          <button onClick={() => this.filter('dairy')}>Dairy</button>
-          <button onClick={() => this.filter('protein')}>Protein</button> <br />
-          {selectionList}
-          <ToggleDisplay show={this.state.hideList}>
-            {productsList}
-          </ToggleDisplay>
         </div>
       );
     }
