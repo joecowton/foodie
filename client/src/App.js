@@ -78,8 +78,18 @@ constructor(props){
           <div className ="container">
             <BrowserRouter>
               <div>
-                {user}
-                {navBar}
+                <Route exact={true} path="/user">
+                  <div>
+                    <NavBar></NavBar>
+                    <User></User>
+                  </div>
+                </Route>
+                <Route exact={true} path="/">
+                  <div>
+                    <h2>Landing Page</h2>
+                    <h4>HELLO</h4>
+                  </div>
+                </Route>
               </div>
             </BrowserRouter>
             </div>
