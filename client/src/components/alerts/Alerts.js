@@ -32,19 +32,19 @@ class Alerts extends Component {
       <div className="App">
         <div>
           <button className='btn btn-info'
-            onClick={this.createNotification('info')}>Info
+            onMouseOver={this.createNotification('info')}>Info
           </button>
           <hr/>
           <button className='btn btn-success'
-            onClick={this.createNotification('success')}>Success
+            onMouseOver={this.createNotification('success')}>Success
           </button>
           <hr/>
           <button className='btn btn-warning'
-            onClick={this.createNotification('warning')}>Warning
+            onMouseOver={this.createNotification('warning')}>Warning
           </button>
           <hr/>
           <button className='btn btn-danger'
-            onClick={this.createNotification('error')}>Error
+            onMouseOver={this.createNotification('error')}>Error
           </button>
           <NotificationContainer/>
         </div>

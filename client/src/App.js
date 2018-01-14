@@ -3,6 +3,7 @@ import { BrowserRouter, Route} from 'react-router-dom'
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import User from './components/User/User'
+import Prod from './components/User/Prod'
 import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
 import SearchFilter from './components/Products/search-filter/SearchFilter'
@@ -14,13 +15,17 @@ class App extends Component {
 
 constructor(props){
   super(props);
+  this.props.fetchUser();
+  this.props.fetchData();
   this.state = {
     selection: [],
-    productsData: null,
+    productsData: this.props.data,
   }
+  console.log(this.state);
 }
 
   componentDidMount(){
+    console.log(this.props.data);
     fetch('/api/products')
       .then(data => data.json())
       .then(data => {
@@ -28,7 +33,8 @@ constructor(props){
           productsData: data
         })
       })
-    this.props.fetchUser();
+
+
   }
 
   filter = string => {
@@ -45,21 +51,22 @@ constructor(props){
   }
 }
   render() {
-    if (!this.state.productsData) {
-      return <p> Loading Products...</p>
-    } else {
+    // if (!this.state.productsData) {
+    //   return <p> Loading Products...</p>
+    // } else {
 
-      const productsList = <Products
-        products={this.state.productsData}
+      const productsList = <Prod
+        prod={this.state.productsData}
       />
-      const selectionList = <Products
-      products={this.state.selection}
+      const selectionList = <Prod
+      prod={this.state.selection}
       />
       console.log(this.props);
       const alerts = <Alerts/>
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
       const user = <User />
+      const prod = <Prod />
 
       return (
         <div className="App">
@@ -68,23 +75,24 @@ constructor(props){
               <div>
                 {user}
                 {navBar}
+                {prod}
               </div>
             </BrowserRouter>
           </div>
           {searchFilter}
           {alerts}
-          <button onClick={() => this.filter('all')}>All</button>
-          <button onClick={() => this.filter('dairy')}>Dairy</button>
-          <button onClick={() => this.filter('protein')}>Protein</button> <br />
-          {selectionList}
+          <button onMouseOver={() => this.filter('all')}>All</button>
+          <button onMouseOver={() => this.filter('dairy')}>Dairy</button>
+          <button onMouseOver={() => this.filter('protein')}>Protein</button> <br />
+          {/* {selectionList}
           <ToggleDisplay show={this.state.hideList}>
-            {productsList}
-          </ToggleDisplay>
+            {productsList} */}
+          {/* </ToggleDisplay> */}
         </div>
       );
     }
   }
-}
+
 
 
 export default connect(null, actions)(App);
