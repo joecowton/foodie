@@ -24,8 +24,17 @@ constructor(props){
 }
 
   componentDidMount(){
-    this.props.fetchUser();
-    this.props.fetchData();
+    this.props.fetchUser(
+
+    );
+    this.props.fetchData(
+      this.setState(
+        {
+          productsData: {}
+        }
+      )
+    );
+    console.log(this.props);
   }
 
   filter = string => {

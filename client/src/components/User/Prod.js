@@ -3,20 +3,21 @@ import { connect } from 'react-redux';
 
 class Prod extends Component {
   render(){
+    console.log(this.props.data);
     if(this.props.data){
-      console.log(this.props);
     return (
-         <ul>
-             {this.props.data.map((product) => (
-                 <li key={product._id}>
-                   <img  style={{width: 100, height: 100}} src={product.image} alt={"product"}></img>
-                          <p> {product.title}</p>
-                              <p> {product.quantity}</p>
-                              <p> {product.price}</p>
-                              <p> {product.expiryDate}</p>
-                 </li>
-             ))}
-         </ul>
+     <ul>
+         {this.props.data.map((product) => (
+            <div key={product.id}>
+              <img  style={{width: 100, height: 100}} src={product.image} alt={"product"}></img>
+              <p> {product.name}</p>
+              <p> {product.quantity}</p>
+              <p> {product.price}</p>
+              <p> {product.description}</p>
+            </div>
+           ))
+         }
+     </ul>
      );
    }
    else {
