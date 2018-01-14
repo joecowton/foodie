@@ -93,8 +93,8 @@ constructor(props){
             <BrowserRouter>
               <div>
                 {navBar}
-                <Route exact={true} path="/" component={productsAndFilters}/>
-                <Route exact={true} path="/user" component={user} />
+                <Route exact path="/" component={productsAndFilters}/>
+                <Route exact path="/user" component={user} />
               </div>
             </BrowserRouter>
             </div>
