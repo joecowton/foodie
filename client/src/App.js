@@ -71,7 +71,7 @@ constructor(props){
       const alerts = <Alerts/>
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
-      const user = () => <User />
+      const user = () => <User wishList={this.state.productsData}/>
 
     const productsAndFilters = () => <div>
       {searchFilter}

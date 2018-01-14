@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import Products from '../Products/Products'
 import { connect } from 'react-redux';
 
 class User extends Component {
   render(){
+    console.log(this.props.wishList)
     if(this.props.auth){
       return (
         <div className='User'>
@@ -10,6 +12,7 @@ class User extends Component {
             <p>Name: {this.props.auth.name}</p>
             <p>Email: {this.props.auth.email}</p>
             <p>Diet: {this.props.auth.diet}</p>
+            <p><Products products={this.props.wishList}/></p>
         </div>
         )
       }
