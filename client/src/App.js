@@ -28,27 +28,22 @@ constructor(props){
   componentDidMount(){
     fetch('/api/products')
       .then(data => data.json())
-      .then(data => {
-        this.setState({
-          productsData: data
-        })
+      .then(productsData => {
+        this.setState({ productsData })
       })
     this.props.fetchUser();
   }
 
-  filter = string => {
-    if (this.state.productsData) {
-      this.state.selection = [];
-      this.state.productsData.map( product => {
-        if(product.category === string || string === 'all'){
-          this.state.selection.push(product);
-        };
-        this.setState({filterSel: this.state.selection, hideList: false});
-      });
-    } else {
-      return <p> No Dairy Products available</p>
+  filter = query => {
+    this.state.selection = [];
+    this.state.productsData.map( product => {
+      if(product.category === query || query === 'all'){
+        this.state.selection.push(product);
+      };
+      this.setState({filterSel: this.state.selection, hideList: false});
+    });
   }
-}
+
   render() {
     if (!this.state.productsData) {
       return <p> Loading Products...</p>
