@@ -1,18 +1,35 @@
-import React from 'react';
-import Product from './Product/Product';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Product from './Product'
 
+class Products extends Component {
+  render(){
+    if(this.props.data){
+      return (
+        <div>
 
-const Products =  (props) => props.products.map( (product) => {
-console.log(props);
-  return (
-    <Product
-    image={product.image}
-    name={product.title}
-    quantity={product.quantity}
-    price={product.price}
-    date={product.expiryDate}
-    key={product.id}
-    />
-  )
-})
-export default Products
+          {this.props.data.map((product) => (
+              <Products
+                image={product.image}
+                name={product.title}
+                quantity={product.quantity}
+                price={product.price}
+                date={product.expiryDate}
+                key={product.id}
+              />
+            ))
+          }
+        </div>
+      );
+    }
+      else {
+        return null;
+      }
+    }
+  }
+
+  function mapStateToProps({data}) {
+    return { data }
+  }
+
+  export default connect(mapStateToProps) (Products);

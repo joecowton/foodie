@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Prod extends Component {
+class Product extends Component {
   render(){
+    console.log(this.props.data);
     if(this.props.data){
     return (
      <ul>
@@ -29,4 +30,4 @@ function mapStateToProps({data}) {
   return { data }
 }
 
-export default connect(mapStateToProps) (Prod);
+export default connect(mapStateToProps) (Product);

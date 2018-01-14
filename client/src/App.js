@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import User from './components/User/User'
 import Prod from './components/User/Prod'
+import Product from './components/Products/Product'
 import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
 import SearchFilter from './components/Products/search-filter/SearchFilter'
@@ -24,16 +25,8 @@ constructor(props){
 }
 
   componentDidMount(){
-    this.props.fetchUser(
-
-    );
-    this.props.fetchData(
-      this.setState(
-        {
-          productsData: {}
-        }
-      )
-    );
+    this.props.fetchUser();
+    this.props.fetchData()
     console.log(this.props);
   }
 
@@ -51,12 +44,14 @@ constructor(props){
   }
 }
   render() {
+    console.log(<Products/>);
+
     // if (!this.state.productsData) {
     //   return <p> Loading Products...</p>
     // } else {
 
       const productsList = <Products
-        prod={this.state.productsData}
+      products={this.state.productsData}
       />
       const selectionList = <Products
       products={this.state.selection}
@@ -92,6 +87,7 @@ constructor(props){
       );
     }
   }
+
 
 
 
