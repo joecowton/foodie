@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
-import NavBar from './components/NavBar/NavBar'
-import Products from './components/Products/Products'
-import SearchFilter from './components/Products/search-filter/SearchFilter'
+import NavBar from './components/NavBar/NavBar';
+import Products from './components/Products/Products';
+import SearchFilter from './components/Products/search-filter/SearchFilter';
+// import ArangeBy from './components/Products/Arangement/ArangeBy';
 import ToggleDisplay from 'react-toggle-display';
 import { connect } from 'react-redux';
 import * as actions from './actions';
@@ -14,19 +15,23 @@ const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
 const Landing = () => <h2>Landing</h2>
 
+// const productRange = '/api/products'
 
 class App extends Component {
+
 
 constructor(props){
   super(props);
   this.state = {
     selection: [],
-    productsData: null
+    productsData: null,
+    productAPI: '/api/products'
   }
 }
 
-  componentDidMount(){
-    fetch('/api/products')
+
+  componentDidMount(){ // pass in arangement api
+      fetch(this.state.productAPI)
       .then(data => data.json())
       .then(data => {
         this.setState({
@@ -34,6 +39,12 @@ constructor(props){
         })
       })
     this.props.fetchUser();
+  }
+
+  setAPI(string) {
+    this.setState({
+      productAPI : string
+    })
   }
 
   filter = string => {
@@ -54,15 +65,12 @@ constructor(props){
       return <p> Loading Products...</p>
     } else {
 
-      const productsList = <Products
-        products={this.state.productsData}
-      />
-      const selectionList = <Products
-      products={this.state.selection}
-      />
+      const productsList = <Products products={this.state.productsData} />
+      const selectionList = <Products products={this.state.selection} />
 
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
+      // const arangeBy = <ArangeBy />
 
       return (
         <div className="App">
@@ -76,15 +84,25 @@ constructor(props){
               </div>
             </BrowserRouter>
           </div>
-
-
-          <p>Hello</p>
           {navBar}
           {searchFilter}
+          <h6>
+
+
+            <div>
+            Arange By:
+              <button onClick={ () => this.setAPI('/api/products') }> expiry date </button>
+              <button onClick={ () => this.setAPI('/api/products/price/decending') }> price decending </button>
+              <button onClick={ () => this.setAPI('/api/products/price/ascending') }> price ascending </button>
+            </div>
+          </h6>
+
+
+
           <button onClick={() => this.filter('all')}>All</button>
           <button onClick={() => this.filter('dairy')}>Dairy</button>
           <button onClick={() => this.filter('protein')}>Protein</button> <br />
-          {selectionList}
+            {selectionList}
           <ToggleDisplay show={this.state.hideList}>
             {productsList}
           </ToggleDisplay>

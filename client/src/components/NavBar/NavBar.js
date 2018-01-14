@@ -3,7 +3,6 @@ import './NavBar.css';
 
 const NavBar = (props) => {
   return (
-
     <nav className="NavBar">
       <div className="navbar navbar-expand-sm navbar-dark bg-secondary mb-5">
           <a className="navbar-brand" href="/">Foodie</a>

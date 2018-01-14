@@ -9,11 +9,12 @@ const ArangeBy = (props) => {
         <h6>
           <div>
           Arange By:
-            <button htmlFor="expiry" arangeBy='expiry'> expiry date </button>
-            <button htmlFor="price-decending" arangeBy='price-descending'> price decending </button>
-            <button htmlFor="price-ascending" arangeBy='prce-ascending'> price ascending </button>
+            <button htmlFor="expiry" value={App.state.search='expiry'}> expiry date </button>
+            <button htmlFor="price-decending" value={App.state.search = 'price-decending'}> price decending </button>
+            <button htmlFor="price-ascending" value={App.state.search = 'prce-ascending'}> price ascending </button>
           </div>
         </h6>
+        <br />
     </div>
   )
 }
