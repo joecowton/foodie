@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Product = mongoose.model('products');
 const TescoAPI = require("tesco-api-node");
+const keys = require('../config/keys');
 
-const api = new TescoAPI("b251645b90664ac2bd23ab96dcb0089d");
+const api = new TescoAPI(keys.tescoKey);
 
 module.exports = app => {
   app.get('/api/products', function(req, res){

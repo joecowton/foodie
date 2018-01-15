@@ -1,12 +1,8 @@
 .Product {
-<<<<<<< HEAD
+
   background: linear-gradient(white, white, white); /* Standard syntax */
-  width: 50%;
-=======
-  /* background: linear-gradient(gray, white, gray); Standard syntax */
-  height: 350px;
+  height: 380px;
   width: 300px;
->>>>>>> origin/bullocks-merge-2
   color: black;
   /* margin: 16px auto; */
   margin: 5px;
@@ -23,8 +19,6 @@
 .searchLabel {
   color: forestgreen;
   font-size: 26pt;
-  
-
 }
 
 @media (min-width:500px){
