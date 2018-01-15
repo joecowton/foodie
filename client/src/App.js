@@ -15,7 +15,7 @@ const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
 const Landing = () => <h2>Landing</h2>
 
-// const productRange = '/api/products'
+ // var productRange = '/api/products'
 
 class App extends Component {
 
@@ -27,8 +27,16 @@ constructor(props){
     productsData: null,
     productAPI: '/api/products'
   }
+  this.setAPI = this.setAPI.bind(this);
 }
 
+setAPI(string) {
+  this.setState({productAPI: string});
+}
+
+getAPI(){
+  return this.state.productAPI
+}
 
   componentDidMount(){ // pass in arangement api
       fetch(this.state.productAPI)
@@ -41,9 +49,13 @@ constructor(props){
     this.props.fetchUser();
   }
 
-  setAPI(string) {
-    this.setState({
-      productAPI : string
+  remountComponent(api){
+    fetch(api)
+    .then(data => data.json())
+    .then(data => {
+      this.setState({
+        productsData: data
+      })
     })
   }
 
@@ -60,6 +72,24 @@ constructor(props){
       return <p> No Dairy Products available</p>
   }
 }
+
+// refactoring category links: dynamic creation
+  categoryArrangement(){
+    const categories = ['all', 'dairy', 'protein', 'vegetables', 'fruits', 'desserts', 'snacks'];
+    const categoryLinks = categories.map( category => {
+      return (
+        <button onClick={() => this.filter(category)}>
+        {category}
+        </button>
+      )
+    });
+    return <div>{categoryLinks}</div>
+  }
+
+  sortingArrangement(){
+
+  }
+
   render() {
     if (!this.state.productsData) {
       return <p> Loading Products...</p>
@@ -70,7 +100,6 @@ constructor(props){
 
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
-      // const arangeBy = <ArangeBy />
 
       return (
         <div className="App">
@@ -85,23 +114,18 @@ constructor(props){
             </BrowserRouter>
           </div>
           {navBar}
-          {searchFilter}
           <h6>
-
-
             <div>
             Arange By:
-              <button onClick={ () => this.setAPI('/api/products') }> expiry date </button>
-              <button onClick={ () => this.setAPI('/api/products/price/decending') }> price decending </button>
-              <button onClick={ () => this.setAPI('/api/products/price/ascending') }> price ascending </button>
+              <button onClick={ () => this.remountComponent('/api/products') }> expiry date </button>
+              <button onClick={ () => this.remountComponent('/api/products/price/decending') }> price decending </button>
+              <button onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
             </div>
           </h6>
-
-
-
-          <button onClick={() => this.filter('all')}>All</button>
-          <button onClick={() => this.filter('dairy')}>Dairy</button>
-          <button onClick={() => this.filter('protein')}>Protein</button> <br />
+          <div>
+            {this.categoryArrangement()}
+          </div>
+          <br />
             {selectionList}
           <ToggleDisplay show={this.state.hideList}>
             {productsList}

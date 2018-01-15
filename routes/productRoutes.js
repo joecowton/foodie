@@ -39,6 +39,13 @@ app.get('/api/products/price/decending', function(req, res){
       })
   })
 
+  // multi-parameter filter:
+  // app.get('api/products/filteredBy/:filters', function (req, res){
+  //   var filters = req.params.filters;
+  //   var responseObject= { message: ' Filtered products:' filtered};
+  //   res.send(responseObject);
+  // })
+
   app.delete('/api/products/delete/:title', function(req, res){
     Product.remove({ title: req.params.title })
       .then(() => {
