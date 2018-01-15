@@ -84,19 +84,6 @@ getAPI(){
     return <div>{categoryLinks}</div>
   }
 
-// refactoring category links: dynamic creation
-  categoryArrangement(){
-    const categories = ['all', 'dairy', 'protein', 'vegetables', 'fruits', 'desserts', 'snacks'];
-    const categoryLinks = categories.map( category => {
-      return (
-        <button onClick={() => this.filter(category)}>
-        {category}
-        </button>
-      )
-    });
-    return <div>{categoryLinks}</div>
-  }
-
   searchText = e => {
     e.preventDefault();
 
