@@ -22,7 +22,6 @@ constructor(props){
   this.state = {
     selection: [],
     productsData: null,
-    tescoData: null,
     productAPI: '/api/products'
   }
   this.setAPI = this.setAPI.bind(this);
@@ -37,11 +36,6 @@ getAPI(){
 }
 
   componentDidMount(){
-    fetch('/api/products/default')
-      .then(data => data.json())
-      .then(tescoData => {
-        this.setState({ tescoData })
-      })
     fetch('/api/products')
       .then(data => data.json())
       .then(productsData => {
@@ -84,37 +78,6 @@ getAPI(){
     return <div>{categoryLinks}</div>
   }
 
-  searchText = e => {
-    e.preventDefault();
-
-    var searchFilter = e.target.value;
-
-    // dont search unless 3 characters have been entered
-    if(searchFilter.length < 3){
-      return;
-    }
-
-    //console.log( e.target.value );
-
-    fetch('/api/products/' + searchFilter)
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          productsData: data
-        })
-      })
-  }
-
-  tescoFilter = searchFilter => {
-    fetch('/api/products/' + searchFilter)
-      .then(data => data.json())
-      .then(data => {
-
-        this.setState({
-          productsData: data
-        })
-      })
-    }
 
   render() {
     if (!this.state.productsData) {
@@ -128,22 +91,8 @@ getAPI(){
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
       const user = () => <User wishList={this.state.productsData}/>
-
-    const tescoApi = () => <div>
-      <label className="searchLabel" >What cha want?</label>
-        <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
-
-        <div>
-          <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('vegan')}>Vegan</button>
-          <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('vegetarian')}>Vegetarian</button>
-          <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('dairy free')}>Dairy Free</button>
-          <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('gluten free')}>Gluten Free</button>
-          <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('low fat')}>Low Fat</button> <br />
-        </div>
-      <Tesco tescoprods={this.state.tescoData} />
-    </div>
-
-    const productsAndFilters = () => <div>
+      const tescoApi = () =>  <Tesco />
+      const productsAndFilters = () => <div>
     <h6>
       <div>
       Arange By:
