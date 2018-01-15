@@ -79,19 +79,23 @@ constructor(props){
       const searchFilter = <SearchFilter />
       const user = () => <User wishList={this.state.productsData}/>
 
-    const tescoApi = () => <div>
-        <div>
-          <button className="btn btn-success quickSearch" onClick={() => this.filter('vegan')}>Vegan</button>
-          <button className="btn btn-success quickSearch" onClick={() => this.filter('vegetarian')}>Vegetarian</button>
-          <button className="btn btn-success quickSearch" onClick={() => this.filter('dairy free')}>Dairy Free</button>
-          <button className="btn btn-success quickSearch" onClick={() => this.filter('gluten free')}>Gluten Free</button>
-          <button className="btn btn-success quickSearch" onClick={() => this.filter('low fat')}>Low Fat</button> <br />
+      const searchInput = <div>
+        <label className="searchLabel" >What cha want?</label>
+        <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
+      </div>
+      const tescoApi = () => <div>
+          <div>
+            <button className="btn btn-success quickSearch" onClick={() => this.filter('vegan')}>Vegan</button>
+            <button className="btn btn-success quickSearch" onClick={() => this.filter('vegetarian')}>Vegetarian</button>
+            <button className="btn btn-success quickSearch" onClick={() => this.filter('dairy free')}>Dairy Free</button>
+            <button className="btn btn-success quickSearch" onClick={() => this.filter('gluten free')}>Gluten Free</button>
+            <button className="btn btn-success quickSearch" onClick={() => this.filter('low fat')}>Low Fat</button> <br />
+          </div>
+          {selectionList}
+          <ToggleDisplay show={this.state.hideList}>
+            {productsList}
+          </ToggleDisplay>
         </div>
-      {selectionList}
-      <ToggleDisplay show={this.state.hideList}>
-        {productsList}
-      </ToggleDisplay>
-    </div>
 
     const productsAndFilters = () => <div><h2>FUCK YOU</h2></div>
 
@@ -102,10 +106,7 @@ constructor(props){
             <BrowserRouter>
               <div>
                 {navBar}
-                <div>
-                  <label className="searchLabel" >What cha want?</label>
-                  <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
-                </div>
+                {searchInput}
                 <Route exact path="/" component={productsAndFilters}/>
                 <Route exact path="/tesco" component={tescoApi} />
                 <Route exact path="/user" component={user} />
