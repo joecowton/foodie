@@ -9,8 +9,28 @@ module.exports = app => {
       .then((products) => {
         res.json(products)
       })
-
   });
+
+  // sort by price ascending:
+  app.get('/api/products/price/ascending', function(req, res){
+    console.log(req.query.category);
+    Product.find( {} )
+      .sort( {price: 'asc'} )
+      .then((products) => {
+        res.json(products)
+      })
+  });
+
+// sort by price decending:
+app.get('/api/products/price/decending', function(req, res){
+  console.log(req.query.category);
+  Product.find( {} )
+    .sort( {price: 'desc'} )
+    .then((products) => {
+      res.json(products)
+    })
+});
+
 
   app.get('/api/products/categories/:category', function(req, res){
     Product.find({ category: req.params.category})
@@ -18,6 +38,13 @@ module.exports = app => {
         res.json(products)
       })
   })
+
+  // multi-parameter filter:
+  // app.get('api/products/filteredBy/:filters', function (req, res){
+  //   var filters = req.params.filters;
+  //   var responseObject= { message: ' Filtered products:' filtered};
+  //   res.send(responseObject);
+  // })
 
   app.delete('/api/products/delete/:title', function(req, res){
     Product.remove({ title: req.params.title })

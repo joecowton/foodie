@@ -1,5 +1,5 @@
 .Product {
-  background: linear-gradient(gray, white, gray); /* Standard syntax */
+  background: linear-gradient(white, white, white); /* Standard syntax */
   width: 50%;
   color: black;
   margin: 16px auto;

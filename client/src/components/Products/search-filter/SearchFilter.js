@@ -5,20 +5,19 @@ const SearchFilter = (props) => {
 
   return (
     <div className="SearchFilter">
-      <div className="card card-body">
-        <h4>Filter Product Search</h4>
+      <div >
         <form>
-        <h5>
+        <h6>Filter Products</h6>
           <div className="form-group">
-            <label htmlFor="type">By Type </label>
-            <input type="text" className="form-control" name="type" /><br />
-            <label htmlFor="price">By Price </label>
-            <input type="text" className="form-control" name="price" />
+            <label htmlFor="type">  Type  </label>
+            <input type="text" className="form-control-3" name="type" />
+            <label htmlFor="price">  Price  </label>
+            <input type="text" className="form-control-3" name="price" /><br />
+            <button type="submit" className="btn btn-secondary">Submit</button>
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
-          </h5>
         </form>
       </div>
+      <br />
     </div>
   )
 }
