@@ -5,130 +5,41 @@ import NavBar from './components/NavBar/NavBar'
 import User from './components/User/User'
 import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
-import SearchFilter from './components/Products/search-filter/SearchFilter'
-import ToggleDisplay from 'react-toggle-display';
+import LandingPage from './components/LandingPage/LandingPage';
 import Tesco from './components/tesco/tesco';
 import { connect } from 'react-redux';
 import * as actions from './actions';
 
-
- // var productRange = '/api/products'
-
 class App extends Component {
-
-
-constructor(props){
-  super(props);
-  this.state = {
-    selection: [],
-    productsData: null,
-    productAPI: '/api/products'
+  constructor(props){
+    super(props);
   }
-  this.setAPI = this.setAPI.bind(this);
-}
-
-setAPI(string) {
-  this.setState({productAPI: string});
-}
-
-getAPI(){
-  return this.state.productAPI
-}
 
   componentDidMount(){
-    fetch('/api/products')
-      .then(data => data.json())
-      .then(productsData => {
-        this.setState({ productsData })
-      })
     this.props.fetchUser();
   }
 
-  filter = query => {
-    this.state.selection = [];
-    this.state.productsData.map( product => {
-      if(product.category === query || query === 'all'){
-        this.state.selection.push(product);
-      };
-      this.setState({filterSel: this.state.selection, hideList: false});
-    });
-  }
-
-  remountComponent(api){
-    fetch(api)
-    .then(data => data.json())
-    .then(data => {
-      this.setState({
-        productsData: data
-      })
-    })
-  }
-
-
-// refactoring category links: dynamic creation
-  categoryArrangement(){
-    const categories = ['all', 'dairy', 'protein', 'vegetables', 'fruits', 'desserts', 'snacks'];
-    const categoryLinks = categories.map( category => {
-      return (
-        <button onClick={() => this.filter(category)}>
-        {category}
-        </button>
-      )
-    });
-    return <div>{categoryLinks}</div>
-  }
-
-
   render() {
-    if (!this.state.productsData) {
-      return <p> Loading Products...</p>
-    } else {
+    const alerts = <Alerts/>
+    const navBar = <NavBar />
+    const user = () => <User />
+    const tescoApi = () =>  <Tesco />
+    const landingpage = () => <LandingPage />
 
-      const productsList = <Products products={this.state.productsData} />
-      const selectionList = <Products products={this.state.selection} />
-
-      const alerts = <Alerts/>
-      const navBar = <NavBar />
-      const searchFilter = <SearchFilter />
-      const user = () => <User wishList={this.state.productsData}/>
-      const tescoApi = () =>  <Tesco />
-      const productsAndFilters = () => <div>
-    <h6>
-      <div>
-      Arange By:
-        <button onClick={ () => this.remountComponent('/api/products') }> expiry date </button>
-        <button onClick={ () => this.remountComponent('/api/products/price/decending') }> price decending </button>
-        <button onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
-      </div>
-    </h6>
-    <div>
-      {this.categoryArrangement()}
-    </div>
-    <br />
-      {selectionList}
-    <ToggleDisplay show={this.state.hideList}>
-      {productsList}
-    </ToggleDisplay>
-    </div>
-
-
-
-      return (
-        <div className="App">
-          <div className ="container">
-            <BrowserRouter>
-              <div>
-                {navBar}
-                <Route exact path="/" component={productsAndFilters}/>
-                <Route exact path="/tesco" component={tescoApi}/>
-                <Route exact path="/user" component={user} />
-              </div>
-            </BrowserRouter>
-          </div>
-
+    return (
+      <div className="App">
+        <div className ="container">
+          <BrowserRouter>
+            <div>
+              {navBar}
+              <Route exact path="/" component={landingpage}/>
+              <Route exact path="/tesco" component={tescoApi}/>
+              <Route exact path="/user" component={user} />
+            </div>
+          </BrowserRouter>
         </div>
-      )
-       }
+      </div>
+    )
   }
 }
 

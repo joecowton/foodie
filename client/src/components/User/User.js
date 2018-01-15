@@ -12,7 +12,6 @@ class User extends Component {
             <p>Name: {this.props.auth.name}</p>
             <p>Email: {this.props.auth.email}</p>
             <p>Diet: {this.props.auth.diet}</p>
-            <p><Products products={this.props.wishList}/></p>
         </div>
         )
       }
