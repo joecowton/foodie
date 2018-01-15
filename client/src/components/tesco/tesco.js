@@ -5,10 +5,11 @@ class Tesco extends Component {
   constructor(props){
     super(props);
     this.state = {
-      tescoData: null,
-      specialDealData: []
+      tescoData: null
     }
   }
+
+// all products included :
 
   // componentDidMount(){
   //   fetch('/api/products/default')
@@ -33,6 +34,7 @@ class Tesco extends Component {
   }
 
   searchText = e => {
+    var that = [];
     e.preventDefault();
     var searchFilter = e.target.value;
     // dont search unless 3 characters have been entered
@@ -41,23 +43,31 @@ class Tesco extends Component {
     }
     fetch('/api/products/' + searchFilter)
       .then(data => data.json())
-      .then(data => {
+      .then(tescoData => {
+        tescoData.forEach( data => {
+         if(data.PromotionDescription){
+           that.push(data)
+         }
         this.setState({
-          tescoData: data
+          tescoData: that})
         })
       })
   }
 
   tescoFilter = searchFilter => {
+    var that = [];
     fetch('/api/products/' + searchFilter)
       .then(data => data.json())
-      .then(data => {
-
+      .then(tescoData => {
+        tescoData.forEach( data => {
+         if(data.PromotionDescription){
+           that.push(data)
+         }
         this.setState({
-          tescoData: data
+          tescoData: that})
         })
       })
-    }
+  }
 
   tescoFilterArrangement(){
     const tescoCategories = ['vegan', 'vegetarian', 'dairy free', 'gluten free', 'low fat' ]
