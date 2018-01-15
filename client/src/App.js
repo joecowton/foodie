@@ -21,6 +21,7 @@ constructor(props){
   this.state = {
     selection: [],
     productsData: null,
+    tescoData: null,
     productAPI: '/api/products'
   }
   this.setAPI = this.setAPI.bind(this);
@@ -36,6 +37,11 @@ getAPI(){
 
   componentDidMount(){
     fetch('/api/products/default')
+      .then(data => data.json())
+      .then(tescoData => {
+        this.setState({ tescoData })
+      })
+    fetch('/api/products')
       .then(data => data.json())
       .then(productsData => {
         this.setState({ productsData })
