@@ -3,6 +3,7 @@ import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import User from './components/User/User'
+import Maps from './components/Map/Map'
 import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
 import SearchFilter from './components/Products/search-filter/SearchFilter'
@@ -34,14 +35,16 @@ getAPI(){
   return this.state.productAPI
 }
 
-  componentDidMount(){
-    fetch('/api/products/default')
-      .then(data => data.json())
-      .then(productsData => {
-        this.setState({ productsData })
-      })
-    this.props.fetchUser();
-  }
+componentDidMount(){
+  fetch('/api/products/default')
+  .then(data => data.json())
+  .then(productsData => {
+    this.setState({ productsData })
+  })
+  this.props.fetchUser();
+ }
+
+
 
   filter = query => {
     this.state.selection = [];
@@ -122,14 +125,14 @@ getAPI(){
       })
     }
 
-  render() {
+    render() {
     if (!this.state.productsData) {
       return <p> Loading Products...</p>
     } else {
 
       const productsList = <Products products={this.state.productsData} />
       const selectionList = <Products products={this.state.selection} />
-
+      const map = () => <Maps />
       const alerts = <Alerts/>
       const navBar = <NavBar />
       const searchFilter = <SearchFilter />
@@ -151,6 +154,7 @@ getAPI(){
         {productsList}
       </ToggleDisplay>
     </div>
+
 
     const productsAndFilters = () => <div>
     <h6>
@@ -182,14 +186,18 @@ getAPI(){
                 <Route exact path="/" component={productsAndFilters}/>
                 <Route exact path="/tesco" component={tescoApi}/>
                 <Route exact path="/user" component={user} />
+                <Route exact path="/map" component={map} />
               </div>
             </BrowserRouter>
           </div>
+          <div id='app'>
+      </div>
 
         </div>
       )
        }
   }
+
 }
 
 

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Product = mongoose.model('products');
 const TescoAPI = require("tesco-api-node");
 
-const api = new TescoAPI("b251645b90664ac2bd23ab96dcb0089d");
+const api = new TescoAPI("e4a394ac2c5741da8007d5e98ffb93af");
 
 module.exports = app => {
   app.get('/api/products', function(req, res){
