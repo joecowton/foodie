@@ -6,10 +6,11 @@ const Products =  (props) => props.products.map( (product) => {
   return (
     <Product
     image={product.image}
-    name={product.title}
-    quantity={product.quantity}
+    name={product.name}
+    quantity={product.UnitQuantity}
     price={product.price}
-    date={product.expiryDate}
+    description={product.description ? product.description[0] : "Sorry! No Description Available"}
+    // date={product.expiryDate}
     key={product.id}
     />
   )

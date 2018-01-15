@@ -1,11 +1,25 @@
 .Product {
-  background: linear-gradient(gray, white, gray); /* Standard syntax */
-  width: 50%;
+  /* background: linear-gradient(gray, white, gray); Standard syntax */
+  height: 350px;
+  width: 300px;
   color: black;
-  margin: 16px auto;
+  /* margin: 16px auto; */
+  margin: 5px;
   border: 1px solid #bbb;
   box-shadow: 0 2px 2px #fff;
   padding: 10px;
+  float: left;
+}
+
+.quickSearch {
+  margin: 5px 5px;
+}
+
+.searchLabel {
+  color: forestgreen;
+  font-size: 26pt;
+  
+
 }
 
 @media (min-width:500px){

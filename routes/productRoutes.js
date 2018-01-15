@@ -1,15 +1,33 @@
 const mongoose = require('mongoose');
 const Product = mongoose.model('products');
+const TescoAPI = require("tesco-api-node");
+
+const api = new TescoAPI("b251645b90664ac2bd23ab96dcb0089d");
 
 module.exports = app => {
-  app.get('/api/products', function(req, res){
-    console.log(req.query.category);
-    Product.find( {} )
-      .sort( {expiryDate: 'desc'} )
-      .then((products) => {
-        res.json(products)
-      })
+  app.get('/api/products/:search', function(req, res){
+    
+    var search = req.params.search
+    var query = search == "default" ? "nestle" : search;
+    console.log("Searching for  >>>> ", query)
 
+    var options = {
+      limit: 12,
+      query: query
+    }
+    api.grocerySearch(options)
+    .then((results) => {
+
+      var tescoProducts = JSON.parse(results).uk.ghs.products.results;
+
+      console.log("RESULTS>>>>>", tescoProducts);
+
+      res.json(tescoProducts);
+      
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   });
 
   app.get('/api/products/categories/:category', function(req, res){
@@ -18,13 +36,6 @@ module.exports = app => {
         res.json(products)
       })
   })
-
-  app.delete('/api/products/delete/:title', function(req, res){
-    Product.remove({ title: req.params.title })
-      .then(() => {
-        console.log("deleted");
-    });
-  });
 
   app.get('/api/products/:title', function(req, res){
     Product.find({ title: req.params.title })

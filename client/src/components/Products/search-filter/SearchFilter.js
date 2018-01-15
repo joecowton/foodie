@@ -7,7 +7,7 @@ const SearchFilter = (props) => {
     <div className="SearchFilter">
       <div className="card card-body">
         <h4>Filter Product Search</h4>
-        <form>
+        <form action="/api/products/cadbury">
         <h5>
           <div className="form-group">
             <label htmlFor="type">By Type </label>
