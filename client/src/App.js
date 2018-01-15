@@ -7,6 +7,7 @@ import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
 import SearchFilter from './components/Products/search-filter/SearchFilter'
 import ToggleDisplay from 'react-toggle-display';
+import Tesco from './components/tesco/tesco';
 import { connect } from 'react-redux';
 import * as actions from './actions';
 
@@ -152,10 +153,7 @@ getAPI(){
           <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('gluten free')}>Gluten Free</button>
           <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('low fat')}>Low Fat</button> <br />
         </div>
-      {selectionList}
-      <ToggleDisplay show={this.state.hideList}>
-        {productsList}
-      </ToggleDisplay>
+      <Tesco tescoprods={this.state.tescoData} />
     </div>
 
     const productsAndFilters = () => <div>
