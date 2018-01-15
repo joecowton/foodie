@@ -17,11 +17,11 @@ const Product = (props) => {
   return (
 
     <div className='Product'>
-    <img style={{width: 90, height: 90}} src={props.image} alt={"product"}></img>
+    <img style={{width: 200, height: 200}} src={props.image} alt={"product"}></img>
     <p>{props.name}</p>
-    <p>Quantity: {props.quantity}</p>
-    <p>Price: £{props.price}</p>
-    <p>Description: {props.description}</p>
+    <p>£{props.price} / {props.quantity}</p>
+    <p>{props.description}</p>
+    <tag>Promotion :{props.PromotionDescription}</tag>
     {/* <p>Date: {props.date}</p> */}
     <button onClick={() => addToWishlist(props)}>Add to shopping list</button>
     </div>
