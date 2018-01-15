@@ -45,6 +45,17 @@ class Tesco extends Component {
       })
     }
 
+  tescoFilterArrangement(){
+    const tescoCategories = ['vegan', 'vegetarian', 'dairy free', 'gluten free', 'low fat' ]
+    const tescoCategoryLinks = tescoCategories.map( category => {
+      return (
+        <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter(category)}>{category}
+        </button>
+      )
+    })
+    return <div>{tescoCategoryLinks}</div>
+  }
+
   render(){
     if(!this.state.tescoData){
       return <h4>TescoProducts Loading...</h4>
@@ -53,14 +64,8 @@ class Tesco extends Component {
         <div>
         <label className="searchLabel" >what would you like to search for?</label>
         <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
-          <div>
-            <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('vegan')}>Vegan</button>
-            <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('vegetarian')}>Vegetarian</button>
-            <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('dairy free')}>Dairy Free</button>
-            <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('gluten free')}>Gluten Free</button>
-            <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter('low fat')}>Low Fat</button> <br />
-          </div>
-          <Products products={this.state.tescoData}/>
+        {this.tescoFilterArrangement()}
+        <Products products={this.state.tescoData}/>
         </div>
       )
     }

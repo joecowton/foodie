@@ -70,16 +70,14 @@ class LandingPage extends Component {
     } else {
       return (
         <div>
-          <div>
           Arrange By:
             <button onClick={ () => this.remountComponent('/api/products') }> expiry date </button>
             <button onClick={ () => this.remountComponent('/api/products/price/decending') }> price decending </button>
             <button onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
-          </div>
         <div>
           {this.categoryArrangement()}
         </div>
-        <br />
+        <br/>
           {selectionList}
         <ToggleDisplay show={this.state.hideList}>
           {productsList}

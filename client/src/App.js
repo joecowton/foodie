@@ -3,7 +3,6 @@ import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import User from './components/User/User'
-import Alerts from './components/alerts/Alerts'
 import Products from './components/Products/Products'
 import LandingPage from './components/LandingPage/LandingPage';
 import Tesco from './components/tesco/tesco';
@@ -20,7 +19,6 @@ class App extends Component {
   }
 
   render() {
-    const alerts = <Alerts/>
     const navBar = <NavBar />
     const user = () => <User />
     const tescoApi = () =>  <Tesco />
@@ -42,6 +40,5 @@ class App extends Component {
     )
   }
 }
-
 
 export default connect(null, actions)(App);
