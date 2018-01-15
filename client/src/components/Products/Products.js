@@ -5,27 +5,19 @@ import axios from 'axios';
 
 const Products =  (props) => props.products.map( (product) => {
 
-  function addToWishlist(product){
-    axios.post('/api/addwishlist', {
-        id: `${product.id}`
-    })
-    .then(function(response) {
-    })
-    .catch(function(error) {
-    });
-  }
 
   return (
     <div>
     <Product
+    id={product.id}
     image={product.image}
-    name={product.title}
-    quantity={product.quantity}
+    name={product.name}
+    quantity={product.UnitQuantity}
     price={product.price}
-    date={product.expiryDate}
+    description={product.description ? product.description[0] : "Sorry! No Description Available"}
+    // date={product.expiryDate}
     key={product.id}
     />
-    <button onClick={() => addToWishlist(product)}>LOVE IT</button>
     </div>
   )
 })

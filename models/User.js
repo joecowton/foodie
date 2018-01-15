@@ -7,24 +7,20 @@ const { Schema } = mongoose;
 const userSchema = new Schema({
   googleID: String,
   name: {
-    type: String,
-    required: false,
-  },
-  phoneNumber: {
-    type: Number,
-    required: false,
+    type: String
   },
   email: {
-    type: String,
-    required: false,
-  },
-  preference: {
-    type: String,
-    required: false,
+    type: String
   },
   image: {
+    type: String
+  },
+  diet: {
     type: String,
-    required: false,
+    default: 'none'
+  },
+  created_at: {
+    type: Number
   },
   product_id: [{
     type: String, ref: 'products'

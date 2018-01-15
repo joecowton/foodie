@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const Product = mongoose.model('products');
+const TescoAPI = require("tesco-api-node");
+
+const api = new TescoAPI("b251645b90664ac2bd23ab96dcb0089d");
 
 module.exports = app => {
   app.get('/api/products', function(req, res){
@@ -18,8 +21,35 @@ module.exports = app => {
       .sort( {price: 'asc'} )
       .then((products) => {
         res.json(products)
-      })
+    })
   });
+
+      app.get('/api/products/:search', function(req, res){
+
+        var search = req.params.search
+        var query = search == "default" ? "nestle" : search;
+        console.log("Searching for  >>>> ", query)
+
+        var options = {
+          limit: 12,
+          query: query
+        }
+
+        api.grocerySearch(options)
+        .then((results) => {
+
+          var tescoProducts = JSON.parse(results).uk.ghs.products.results;
+
+          console.log("RESULTS>>>>>", tescoProducts);
+
+          res.json(tescoProducts);
+
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+  });
+
 
 // sort by price decending:
 app.get('/api/products/price/decending', function(req, res){
@@ -37,7 +67,7 @@ app.get('/api/products/price/decending', function(req, res){
       .then((products) => {
         res.json(products)
       })
-  })
+  });
 
   // multi-parameter filter:
   // app.get('api/products/filteredBy/:filters', function (req, res){
