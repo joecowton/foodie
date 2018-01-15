@@ -79,10 +79,7 @@ constructor(props){
       const searchFilter = <SearchFilter />
       const user = () => <User wishList={this.state.productsData}/>
 
-    const productsAndFilters = () => <div>
-      <label className="searchLabel" >What cha want?</label>
-        <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
-
+    const tescoApi = () => <div>
         <div>
           <button className="btn btn-success quickSearch" onClick={() => this.filter('vegan')}>Vegan</button>
           <button className="btn btn-success quickSearch" onClick={() => this.filter('vegetarian')}>Vegetarian</button>
@@ -96,6 +93,7 @@ constructor(props){
       </ToggleDisplay>
     </div>
 
+    const productsAndFilters = () => <div><h2>FUCK YOU</h2></div>
 
 
       return (
@@ -104,7 +102,12 @@ constructor(props){
             <BrowserRouter>
               <div>
                 {navBar}
+                <div>
+                  <label className="searchLabel" >What cha want?</label>
+                  <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
+                </div>
                 <Route exact path="/" component={productsAndFilters}/>
+                <Route exact path="/tesco" component={tescoApi} />
                 <Route exact path="/user" component={user} />
               </div>
             </BrowserRouter>
