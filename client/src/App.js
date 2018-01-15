@@ -31,19 +31,25 @@ constructor(props){
     this.props.fetchUser();
   }
 
+  searchText = e => {
+    e.preventDefault();
 
-  filter1 = string => {
-    if (this.state.productsData) {
-      this.state.selection = [];
-      this.state.productsData.map( (product) => {
-        if(product.category === string || string === 'all'){
-          this.state.selection.push(product);
-        };
-        this.setState({filterSel: this.state.selection, hideList: false});
-      });
-    } else {
-      return <p> No Dairy Products available</p>
+    var searchFilter = e.target.value;
+
+    // dont search unless 3 characters have been entered
+    if(searchFilter.length < 3){
+      return;
     }
+
+    //console.log( e.target.value );
+
+    fetch('/api/products/' + searchFilter)
+      .then(data => data.json())
+      .then(data => {
+        this.setState({
+          productsData: data
+        })
+      })
   }
 
   filter = searchFilter => {
@@ -74,11 +80,16 @@ constructor(props){
       const user = () => <User wishList={this.state.productsData}/>
 
     const productsAndFilters = () => <div>
-      {searchFilter}
-      {alerts}
-      <button onClick={() => this.filter('all')}>All</button>
-      <button onClick={() => this.filter('dairy')}>Dairy</button>
-      <button onClick={() => this.filter('protein')}>Protein</button> <br />
+      <label className="searchLabel" >What cha want?</label>
+        <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
+
+        <div>
+          <button className="btn btn-success quickSearch" onClick={() => this.filter('vegan')}>Vegan</button>
+          <button className="btn btn-success quickSearch" onClick={() => this.filter('vegetarian')}>Vegetarian</button>
+          <button className="btn btn-success quickSearch" onClick={() => this.filter('dairy free')}>Dairy Free</button>
+          <button className="btn btn-success quickSearch" onClick={() => this.filter('gluten free')}>Gluten Free</button>
+          <button className="btn btn-success quickSearch" onClick={() => this.filter('low fat')}>Low Fat</button> <br />
+        </div>
       {selectionList}
       <ToggleDisplay show={this.state.hideList}>
         {productsList}
@@ -97,33 +108,6 @@ constructor(props){
                 <Route exact path="/user" component={user} />
               </div>
             </BrowserRouter>
-            </div>
-
-          {/* {searchFilter} */}
-
-          <div className="container">
-
-          <label className="searchLabel" >What are you looking for ?</label>
-            <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
-
-            <div>
-              <button className="btn btn-success quickSearch" onClick={() => this.filter('vegan')}>Vegan</button>
-              <button className="btn btn-success quickSearch" onClick={() => this.filter('vegetarian')}>Vegetarian</button>
-              <button className="btn btn-success quickSearch" onClick={() => this.filter('dairy free')}>Dairy Free</button>
-              <button className="btn btn-success quickSearch" onClick={() => this.filter('gluten free')}>Gluten Free</button>
-              <button className="btn btn-success quickSearch" onClick={() => this.filter('low fat')}>Low Fat</button> <br />
-            </div>
-
-        {alerts}
-          <button
-            onClick={() => this.filter1('all')}>All
-          </button>
-          <button onClick={() => this.filter1('dairy')}>Dairy</button>
-          <button onClick={() => this.filter1('protein')}>Protein</button> <br />
-          {selectionList}
-          <ToggleDisplay show={this.state.hideList}>
-          {productsList}
-          </ToggleDisplay>
           </div>
         </div>
       )
