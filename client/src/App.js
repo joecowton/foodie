@@ -47,7 +47,6 @@ getAPI(){
     this.props.fetchUser();
   }
 
-<<<<<<< HEAD
   filter = query => {
     this.state.selection = [];
     this.state.productsData.map( product => {
@@ -57,7 +56,7 @@ getAPI(){
       this.setState({filterSel: this.state.selection, hideList: false});
     });
   }
-=======
+
   remountComponent(api){
     fetch(api)
     .then(data => data.json())
@@ -98,7 +97,6 @@ getAPI(){
   sortingArrangement(){
 
   }
->>>>>>> advanced-filter2
 
   render() {
     if (!this.state.productsData) {
