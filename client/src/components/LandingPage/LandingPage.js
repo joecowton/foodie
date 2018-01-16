@@ -50,7 +50,7 @@ class LandingPage extends Component {
   }
 
   categoryArrangement(){
-    const categories = ['all', 'dairy', 'protein', 'vegetables', 'fruits', 'desserts', 'snacks'];
+    const categories = ['all', 'dairy', 'meat', 'vegetables', 'fruits', 'desserts', 'snacks'];
     const categoryLinks = categories.map( category => {
       return (
         <button className="btn btn-success quickSearch" onClick={() => this.filter(category)}>
