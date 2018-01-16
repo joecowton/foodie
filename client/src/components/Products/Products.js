@@ -4,7 +4,6 @@ import axios from 'axios';
 
 
 const Products =  (props) => props.products.map( (product) => {
-  console.log(product)
   return (
     <div>
     <Product

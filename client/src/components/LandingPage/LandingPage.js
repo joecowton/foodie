@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Products from '../Products/Products'
-import ToggleDisplay from 'react-toggle-display';
 
 class LandingPage extends Component {
   constructor(props){
@@ -8,6 +7,7 @@ class LandingPage extends Component {
     this.state = {
       productsData: null,
       selection: [],
+      currentCategory: "all",
       productAPI: '/api/products'
     }
   this.setAPI = this.setAPI.bind(this);
@@ -26,6 +26,9 @@ class LandingPage extends Component {
       .then(data => data.json())
       .then(productsData => {
         this.setState({ productsData })
+        this.setState({
+          selection: productsData
+        })
       })
   }
 
@@ -35,17 +38,24 @@ class LandingPage extends Component {
       if(product.category === query || query === 'all'){
         this.state.selection.push(product);
       };
-      this.setState({filterSel: this.state.selection, hideList: false});
+      this.setState({filterSel: this.state.selection});
     });
   }
 
-  remountComponent(api){
+  remountComponent(api, category){
     fetch(api)
     .then(data => data.json())
     .then(data => {
       this.setState({
-        productsData: data
+        selection: data,
+        currentCategory: category
       })
+    })
+  }
+
+  setCategory(category){
+    this.setState({
+      currentCategory: category
     })
   }
 
@@ -53,7 +63,10 @@ class LandingPage extends Component {
     const categories = ['all', 'dairy', 'meat', 'vegetables', 'fruits', 'desserts', 'snacks'];
     const categoryLinks = categories.map( category => {
       return (
-        <button className="btn btn-success quickSearch" onClick={() => this.filter(category)}>
+        <button className="btn btn-success quickSearch" onClick={() => {
+            this.filter(category)
+            this.setCategory(category)
+          } }>
         {category}
         </button>
       )
@@ -61,28 +74,28 @@ class LandingPage extends Component {
     return <div>{categoryLinks}</div>
   }
   render() {
-    const productsList = <Products products={this.state.productsData} />
-    const selectionList = <Products products={this.state.selection} />
 
     if(!this.state.productsData){
       return <h3>Loading products...</h3>
     } else {
+      console.log(this.state.currentCategory)
       return (
         <div class="Landing-Page">
           Sort by:
-          <button className="btn quickSearch" onClick={ () => this.remountComponent('/api/products') }> expiry date </button>
-          <button className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/decending') }> price decending </button>
-          <button className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
+          <button className="btn quickSearch" onClick={ () => {
+              this.remountComponent('/api/products', this.state.currentCategory)
+            } }> expiry date </button>
+          <button className="btn quickSearch" onClick={ () => {
+              this.remountComponent('/api/products/price/decending', this.state.currentCategory)
+            } }> price decending </button>
+          <button className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/ascending', this.state.currentCategory) }> price ascending </button>
           <br/>
         <div>
           <br/>
           {this.categoryArrangement()}
         </div>
           <br/>
-          {selectionList}
-          <ToggleDisplay show={this.state.hideList}>
-            {productsList}
-          </ToggleDisplay>
+          <Products products={this.state.selection}/>
         </div>
       )
     }
