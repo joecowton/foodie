@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Products from '../Products/Products';
+import ShopList from './ShopList'
 import { connect } from 'react-redux';
 
 
@@ -35,7 +35,7 @@ class ShoppingList extends Component {
   }
 
   render(){
-    const products = <Products products={this.state.list} />
+    const products = <ShopList products={this.state.list} />
     if(this.state.products && this.props.auth){
       return (
         <div>
