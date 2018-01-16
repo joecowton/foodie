@@ -3,16 +3,12 @@ import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import User from './components/User/User'
-import Products from './components/Products/Products'
 import LandingPage from './components/LandingPage/LandingPage';
 import Tesco from './components/tesco/tesco';
 import { connect } from 'react-redux';
 import * as actions from './actions';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-  }
 
   componentDidMount(){
     this.props.fetchUser();

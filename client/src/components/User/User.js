@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Products from '../Products/Products'
 import { connect } from 'react-redux';
 import axios from 'axios';
 
