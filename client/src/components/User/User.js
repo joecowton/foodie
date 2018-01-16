@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
 import Products from '../Products/Products'
 import { connect } from 'react-redux';
+import axios from 'axios';
+
 
 class User extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+       diet: "none"
+    }
+  }
+
+  addToDiet(diet){
+    var self = this
+    axios.put('/api/user/updateDiet/',{
+        diet: diet
+    }).then(function(response){
+      console.log(response);
+       self.setState({diet: response.data.diet})
+    })
+  }
+
   render(){
-    console.log(this.props.wishList)
     if(this.props.auth){
       return (
         <div className='User'>
             <p><img style={{width: 100, height: 100}} src={this.props.auth.image}alt="avatar"></img></p>
             <p>Name: {this.props.auth.name}</p>
             <p>Email: {this.props.auth.email}</p>
-            <p>Diet: {this.props.auth.diet}</p>
+            <p>Diet: {this.state.diet}</p>
+            <button className="vegan" onClick={()=> {this.addToDiet("vegan")}}>Vegan</button>
+            <button className="vegetarian" onClick={()=> {this.addToDiet("vegeterian")}}>Vegetarian</button>
         </div>
         )
       }
