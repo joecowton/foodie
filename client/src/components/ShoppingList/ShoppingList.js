@@ -14,9 +14,11 @@ class ShoppingList extends Component {
   }
 
   componentDidMount(){
+    console.log("HEREEEEEEEEEEEE")
     fetch('/api/products')
       .then(data => data.json())
       .then(products => {
+        console.log("sdgsdg",products)
         this.setState({products})
       });
     }
@@ -35,6 +37,7 @@ class ShoppingList extends Component {
   }
 
   render(){
+    console.log("YESSSSSSSS", this.props.prod)
     const products = <Products products={this.state.list} />
     if(this.state.products && this.props.auth){
       return (
