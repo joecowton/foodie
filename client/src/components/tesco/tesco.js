@@ -9,16 +9,6 @@ class Tesco extends Component {
     }
   }
 
-// all products included :
-
-  // componentDidMount(){
-  //   fetch('/api/products/default')
-  //     .then(data => data.json())
-  //     .then(tescoData => {
-  //       this.setState({ tescoData })
-  //     })
-  // }
-
   componentDidMount(){
     var that = [];
     fetch('/api/products/default')
