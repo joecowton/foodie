@@ -10,11 +10,11 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .App-intro {
-  font-size: large;
+  font-size: small;
 }
 
 @keyframes App-logo-spin {

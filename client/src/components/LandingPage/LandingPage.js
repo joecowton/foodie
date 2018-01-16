@@ -53,7 +53,7 @@ class LandingPage extends Component {
     const categories = ['all', 'dairy', 'protein', 'vegetables', 'fruits', 'desserts', 'snacks'];
     const categoryLinks = categories.map( category => {
       return (
-        <button onClick={() => this.filter(category)}>
+        <button className="btn btn-success quickSearch" onClick={() => this.filter(category)}>
         {category}
         </button>
       )
@@ -69,19 +69,21 @@ class LandingPage extends Component {
       return <h3>Loading products...</h3>
     } else {
       return (
+        <div class="Landing-Page">
+          Sort by:
+          <button className="btn quickSearch" onClick={ () => this.remountComponent('/api/products') }> expiry date </button>
+          <button className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/decending') }> price decending </button>
+          <button className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
+          <br/>
         <div>
-          Arrange By:
-            <button onClick={ () => this.remountComponent('/api/products') }> expiry date </button>
-            <button onClick={ () => this.remountComponent('/api/products/price/decending') }> price decending </button>
-            <button onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
-        <div>
+          <br/>
           {this.categoryArrangement()}
         </div>
-        <br/>
+          <br/>
           {selectionList}
-        <ToggleDisplay show={this.state.hideList}>
-          {productsList}
-        </ToggleDisplay>
+          <ToggleDisplay show={this.state.hideList}>
+            {productsList}
+          </ToggleDisplay>
         </div>
       )
     }
