@@ -22,7 +22,7 @@ module.exports = app => {
         user.diet = req.body.diet || user.diet;
         user.save(function(err, task){
           if(err) return res.status(500).send(err);
-          res.status(200).json(user);
+          res.status(200).json(user.diet);
         })
     })
   })
