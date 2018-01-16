@@ -42,13 +42,12 @@ class LandingPage extends Component {
     });
   }
 
-  remountComponent(api, category){
+  remountComponent(api){
     fetch(api)
     .then(data => data.json())
     .then(data => {
       this.setState({
-        selection: data,
-        currentCategory: category
+        selection: data
       })
     })
   }
@@ -78,17 +77,15 @@ class LandingPage extends Component {
     if(!this.state.productsData){
       return <h3>Loading products...</h3>
     } else {
-      console.log(this.state.currentCategory)
       return (
         <div class="Landing-Page">
           Sort by:
-          <button className="btn quickSearch" onClick={ () => {
-              this.remountComponent('/api/products', this.state.currentCategory)
-            } }> expiry date </button>
-          <button className="btn quickSearch" onClick={ () => {
-              this.remountComponent('/api/products/price/decending', this.state.currentCategory)
-            } }> price decending </button>
-          <button className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/ascending', this.state.currentCategory) }> price ascending </button>
+          <button className="btn quickSearch" onClick={ () =>
+              this.remountComponent('/api/products') }> expiry date </button>
+          <button className="btn quickSearch" onClick={ () =>
+              this.remountComponent('/api/products/price/decending') }> price decending </button>
+          <button className="btn quickSearch" onClick={ () =>
+              this.remountComponent('/api/products/price/ascending') }> price ascending </button>
           <br/>
         <div>
           <br/>

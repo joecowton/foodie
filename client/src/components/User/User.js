@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import Products from '../Products/Products'
 import { connect } from 'react-redux';
 
 class User extends Component {
   render(){
-    console.log(this.props.wishList)
     if(this.props.auth){
       return (
         <div className='User'>

@@ -1,6 +1,5 @@
 import React from 'react';
 import Product from './Product/Product';
-import axios from 'axios';
 
 
 const Products =  (props) => props.products.map( (product) => {
