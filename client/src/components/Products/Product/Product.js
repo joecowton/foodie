@@ -4,7 +4,7 @@ import './Product.css';
 
 const Product = (props) => {
 
-  function addToWishlist(product){
+  function addToShoppinglist(product){
     axios.post('/api/addwishlist', {
         id: `${product.id}`
     })
@@ -22,8 +22,7 @@ const Product = (props) => {
     <p>{props.name}</p>
     <p>£{props.price} / {props.quantity}</p>
     <p>{props.description}</p>
-    {/* <p>Date: {props.date}</p> */}
-    <button onClick={() => addToWishlist(props)}>Add to shopping list</button>
+    <button onClick={() => addToShoppinglist(props)}>Add to shopping list</button>
     <br/>
     </div>
   )
