@@ -18,7 +18,7 @@ class User extends Component {
         diet: diet
     }).then(function(response){
       console.log(response);
-       self.setState({diet: response.data.diet})
+       self.setState({diet: response.data})
     })
   }
 
@@ -31,7 +31,7 @@ class User extends Component {
             <p>Email: {this.props.auth.email}</p>
             <p>Diet: {this.state.diet}</p>
             <button className="vegan" onClick={()=> {this.addToDiet("vegan")}}>Vegan</button>
-            <button className="vegetarian" onClick={()=> {this.addToDiet("vegeterian")}}>Vegetarian</button>
+            <button className="vegetarian" onClick={()=> {this.addToDiet("vegetarian")}}>Vegetarian</button>
         </div>
         )
       }
