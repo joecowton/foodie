@@ -7,11 +7,11 @@ const ProductSchema = new Schema({
     type: Number,
     required: true
   },
-  title:{
+  name:{
     type: String,
     required: true
   },
-  quantity: {
+  UnitQuantity: {
     type: Number,
     required: true,
   },
@@ -19,9 +19,8 @@ const ProductSchema = new Schema({
     type: Number,
     required: true,
   },
-  addedDate: {
-    type: Date,
-    default: Date.now()
+  description: {
+    type: String
   },
   expiryDate: {
     type: Date,
