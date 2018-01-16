@@ -16,4 +16,10 @@ module.exports = app => {
     });
   });
 
+  app.put('/api/user/updateDiet/:diet'){
+    var diet = req.params.diet
+    User.findById({req.user.id}){
+      .then(console.log(diet);)
+    }
+  }
 }
