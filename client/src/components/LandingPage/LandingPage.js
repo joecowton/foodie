@@ -11,7 +11,7 @@ class LandingPage extends Component {
       productAPI: '/api/products'
     }
   this.setAPI = this.setAPI.bind(this);
-
+  this.searchByText = this.searchByText.bind(this);
   }
   setAPI(string) {
     this.setState({productAPI: string});
@@ -72,6 +72,27 @@ class LandingPage extends Component {
     });
     return <div>{categoryLinks}</div>
   }
+
+
+  searchByText(event){
+    event.preventDefault();
+    var searchPhrase = event.target.value;
+    var selectedList = [];
+    this.state.productsData.forEach(element => {
+      var keys = Object.keys(element)
+      keys.forEach(function(key) {
+        if(typeof element[key] == "string"){
+          if(element[key].includes(searchPhrase) && element != selectedList[selectedList.length-1]){
+            selectedList.push(element)
+          }
+        }
+      });
+    });
+    this.setState({
+      selection: selectedList
+    })
+  }
+
   render() {
 
     if(!this.state.productsData){
@@ -79,6 +100,7 @@ class LandingPage extends Component {
     } else {
       return (
         <div class="Landing-Page">
+         <input type="text" onChange={this.searchByText} /><br />
           Sort by:
           <button className="btn quickSearch" onClick={ () =>
               this.remountComponent('/api/products') }> expiry date </button>
