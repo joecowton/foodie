@@ -4,8 +4,7 @@ import axios from 'axios';
 
 
 const Products =  (props) => props.products.map( (product) => {
-
-
+  console.log(product)
   return (
     <div>
     <Product
@@ -14,7 +13,7 @@ const Products =  (props) => props.products.map( (product) => {
     name={product.name}
     quantity={product.UnitQuantity}
     price={product.price}
-    description={product.description ? product.description[0] : "Sorry! No Description Available"}
+    description={product.PromotionDescription}
     date={product.expiryDate}
     key={product.id}
     />

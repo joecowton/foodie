@@ -21,7 +21,7 @@ const Product = (props) => {
     <p>{props.name}</p>
     <p>£{props.price} / {props.quantity}</p>
     <p>{props.description}</p>
-    {/* <p>Date: {props.date}</p> */}
+    <p>{props.date}</p>
     <button onClick={() => addToWishlist(props)}>Add to shopping list</button>
     </div>
   )

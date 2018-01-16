@@ -60,7 +60,6 @@ class LandingPage extends Component {
     });
     return <div>{categoryLinks}</div>
   }
-
   render() {
     const productsList = <Products products={this.state.productsData} />
     const selectionList = <Products products={this.state.selection} />

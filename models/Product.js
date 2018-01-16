@@ -19,11 +19,12 @@ const ProductSchema = new Schema({
     type: Number,
     required: true,
   },
-  description: {
-    type: String
+  PromotionDescription: {
+    type: String,
+    required: false,
   },
   expiryDate: {
-    type: Date,
+    type: String,
     required: true
   },
   image: {
