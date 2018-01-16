@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import Products from '../Products/Products';
+import { ToastContainer, toast } from 'react-toastify';
+import './tesco.css';
+
 
 class Tesco extends Component {
+  notify = () => toast("Nice choice !");
   constructor(props){
     super(props);
     this.state = {
@@ -73,14 +77,23 @@ class Tesco extends Component {
     const tescoCategories = ['vegan', 'vegetarian', 'dairy free', 'gluten free', 'low fat' ]
     const tescoCategoryLinks = tescoCategories.map( category => {
       return (
-        <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter(category)}>{category}
-        </button>
+
+        <div>
+        <button className="btn btn-success quickSearch" onClick={this.notify}>{category}</button>
+          <ToastContainer />
+        </div>
+        
+
+        // <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter(category)}>  {category}
+        // </button>
       )
     })
     return <div>{tescoCategoryLinks}</div>
   }
 
+ 
   render(){
+
     if(!this.state.tescoData){
       return <h4>TescoProducts Loading...</h4>
     } else{
