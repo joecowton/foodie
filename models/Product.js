@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 //Create Product Schema
 const ProductSchema = new Schema({
   id:{
-    type: Number,
+    type: String,
     required: true
   },
   title:{
