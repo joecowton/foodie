@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "title":"Chips",
     "quantity":10,
     "price":0.50,
@@ -12,7 +12,7 @@
     "__v":0
   },
   {
-    "id": 2,
+    "id": "2",
     "title":"Chicken",
     "quantity":10,
     "price":1.20,
@@ -24,7 +24,7 @@
     "__v":0
   },
   {
-    "id": 3,
+    "id": "3",
     "title":"Apple",
     "quantity":10,
     "price":0.25,
@@ -35,7 +35,7 @@
     "__v":0
   },
   {
-    "id": 4,
+    "id": "4",
     "title":"Banana",
     "quantity":10,
     "price":0.25,
@@ -46,7 +46,7 @@
     "__v":0
   },
   {
-    "id": 5,
+    "id": "5",
     "title":"Carrot",
     "quantity":10,
     "price":0.20,
@@ -57,7 +57,7 @@
     "__v":0
   },
   {
-    "id": 6,
+    "id": "6",
     "title":"Steak",
     "quantity":10,
     "price":5.20,
@@ -68,7 +68,7 @@
     "__v":0
   },
   {
-    "id": 7,
+    "id": "7",
     "title":"Chicken",
     "quantity":10,
     "price":3.20,
@@ -79,7 +79,7 @@
     "__v":0
   },
   {
-    "id": 8,
+    "id": "8",
     "title":"Milk",
     "quantity":10,
     "price":2.20,
