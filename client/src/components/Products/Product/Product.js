@@ -12,25 +12,8 @@ class Product extends Component {
     super(props);
     }
 
-  createNotification = (type) => {
-  switch (type) {
-    default:
-      break;
-    case 'info':
-      NotificationManager.info('Filter by all!');
-      break;
-    case 'success':
-      NotificationManager.success('Successfully added to list');
-      break;
-    case 'warning':
-      NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-      break;
-    case 'error':
-      NotificationManager.error('Error message', 'Click me!', 5000, () => {
-        alert('callback');
-      });
-      break;
-    }
+  createNotification(){
+    NotificationManager.success('Successfully added to list');
   };
 
   addToWishlist = (product) => {

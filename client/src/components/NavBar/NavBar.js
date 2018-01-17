@@ -9,7 +9,9 @@ class NavBar extends Component {
       case null:
         return;
       case false:
+      // <div class="container">
         return <a className="navbar-brand" href="/auth/google"> Sign In With Google </a>
+      // </div>
       default:
        return (
          <div>
@@ -27,8 +29,8 @@ class NavBar extends Component {
 
   render() {
     return(
-      <div>
-        <nav className="NavBar" >
+      <div class="banner">
+        <nav className="nav">
           <div className="navbar navbar-expand-sm navbar-dark ">
             <Link className="navbar-brand" to="/">fooDeals</Link>
             <Link className="navbar-brand" to="/tesco"> Tesco </Link>
