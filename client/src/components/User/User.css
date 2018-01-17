@@ -1,13 +1,19 @@
 .User {
-  background: linear-gradient(gray, white, gray); /* Standard syntax */
+
+  font-size: 25px;
   width: 50%;
   color: black;
   margin: 16px auto;
   border: 1px solid #bbb;
   box-shadow: 0 2px 2px #fff;
   padding: 10px;
+
+
 }
 
+.user-image {
+  border-radius: 50px;
+}
 @media (min-width:500px){
   .User {
     width:350px;

@@ -33,6 +33,7 @@ class ShopList extends Component {
     render() {
       return(
         <div>
+        <br/>
         {this.products()}
         </div>
       )

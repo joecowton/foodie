@@ -33,10 +33,12 @@ class List extends Component {
         <ToggleDisplay show={this.state.hide}>
           <div className='Product'>
           <br/>
-          <img style={{width: 200, height: 200}} src={this.props.image} alt={"product"}></img>
-          <p>{this.props.name}</p>
-          <p>£{this.props.price} / {this.props.quantity}</p>
-          <p>{this.props.description}</p>
+          <img style={{width: 175, height: 175}} src={this.props.image} alt={"product"}></img>
+          <br />
+          {this.props.name}
+          £{this.props.price} for {this.props.quantity}
+          <br />
+          {this.props.description}
           {/* <p>Date: {props.date}</p> */}
           <button onClick={() => this.removeFromlist(this.props)}>Remove from shopping list</button>
           <br/>
