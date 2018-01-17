@@ -17,14 +17,12 @@ const Product = (props) => {
   return (
 
     <div className='Product'>
-    <img style={{width: 150, height: 150}} src={props.image} alt={"product"}></img>
-    <ul>
-    {props.name}<br />
-    £{props.price} / {props.quantity}<br />
-    {props.description}<br />
-    {props.date}<br />
-    </ul>
-    <button onClick={() => addToWishlist(props)}>Add to shopping list</button>
+    <img style={{width: 165, height: 165}} src={props.image} alt={"product"}></img>
+      <br />
+      {props.name}<br />
+      £{props.price} for {props.quantity}<br />
+      {props.description} before {props.date}<br />
+      <button onClick={() => addToWishlist(props)}>Add to shopping list</button>
     </div>
   )
 };
