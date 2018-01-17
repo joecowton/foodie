@@ -22,15 +22,18 @@ class Product extends Component {
       });
     }
 
-    <div className="Product">
-      <img style={{width: 165, height: 165}} src={props.image} alt={"product"}></img>
-      <br />
-      {props.name}<br />
-      £{props.price} for {props.quantity}<br />
-      {props.description} before {props.date}<br />
-      <button onClick={() => addToWishlist(props)}>Add to shopping list</button>
-    </div>
-  )
+  render(){
+    return(
+      <div className="Product">
+        <img style={{width: 165, height: 165}} src={this.props.image} alt={"product"}></img>
+        <br />
+        {this.props.name}<br />
+        £{this.props.price} for {this.props.quantity}<br />
+        {this.props.description} before {this.props.date}<br />
+        <button onClick={() => this.addToWishlist(this.props)}>Add to shopping list</button>
+      </div>
+    )
+  }
 };
 
 
