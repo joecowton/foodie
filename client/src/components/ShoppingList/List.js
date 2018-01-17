@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import ToggleDisplay from 'react-toggle-display';
+
 // import './List.css';
 
 class List extends Component {
   constructor(props){
     super(props);
-    
+    this.state = {
+      hide: true
+
+    }
+
     }
 
 
@@ -22,10 +28,14 @@ class List extends Component {
       })
       .catch(function(error) {
       });
+      this.setState({hide: false});
+
     }
 
   render(){
     return(
+       <div>
+       <ToggleDisplay show={this.state.hide}>
       <div className='Product'>
       <br/>
       <img style={{width: 200, height: 200}} src={this.props.image} alt={"product"}></img>
@@ -36,6 +46,9 @@ class List extends Component {
       <button onClick={() => this.removeFromlist(this.props)}>Remove from shopping list</button>
       <br/>
       </div>
+      </ToggleDisplay>
+      </div>
+
     )
   }
 
