@@ -106,7 +106,7 @@ class LandingPage extends Component {
           <button className="btn quickSearch" onClick={ () =>
               this.remountComponent('/api/products') }> expiry date </button>
           <button className="btn quickSearch" onClick={ () =>
-              this.remountComponent('/api/products/price/decending') }> price decending </button>
+              this.remountComponent('/api/products/price/decending') }> price descending </button>
           <button className="btn quickSearch" onClick={ () =>
               this.remountComponent('/api/products/price/ascending') }> price ascending </button>
           <br/>

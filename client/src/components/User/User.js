@@ -25,13 +25,15 @@ class User extends Component {
     if(this.props.auth){
       return (
         <div className='User'>
-            <p><img style={{width: 100, height: 100}} src={this.props.auth.image}alt="avatar"></img></p>
-            <p>Name: {this.props.auth.name}</p>
-            <p>Email: {this.props.auth.email}</p>
-            <p>Diet: {this.state.diet}</p>
-            <button className="vegan" onClick={()=> {this.addToDiet("vegan")}}>Vegan</button>
-            <button className="vegetarian" onClick={()=> {this.addToDiet("vegeterian")}}>Vegetarian</button>
-            <button className="gluten-free" onClick={()=> {this.addToDiet("gluten-free")}}>Gluten Free</button>
+          <br/>
+          <p><img className="user-image" style={{width: 250, height: 250}} src={this.props.auth.image}alt="avatar"></img></p>
+          <p>Name: {this.props.auth.name}<br/>
+          Email: {this.props.auth.email}</p>
+          <p>Diet: {this.state.diet}<br/>
+          <button className="vegan" onClick={()=> {this.addToDiet("vegan")}}>Vegan</button>
+          <button className="vegetarian" onClick={()=> {this.addToDiet("vegeterian")}}>Vegetarian</button>
+          <button className="gluten-free" onClick={()=> {this.addToDiet("gluten-free")}}>Gluten Free</button>
+          </p>
         </div>
         )
       }

@@ -5,6 +5,22 @@
     padding: 10px;
 }
 
+.foodeals {
+  background: #ffffff url("test.jpg");
+}
+
+.tesco {
+
+}
+
+.profile {
+
+}
+
+.logout {
+
+}
+
 .login-button {
   width:20px;
   height:20px;

@@ -45,6 +45,16 @@ class ShoppingList extends Component {
     )
   }
 
+  emailList = emailList => {
+    fetch('/api/fishywishy/')
+    .then(response => console.log(response));
+  }
+
+  mailButton() {
+    return (<button className="btn btn-primary" onClick={() => this.emailList()}> Email your shopping list! </button>
+    )
+  }
+
   render(){
     const products = <ShopList products={this.state.list} remount={this.remountComponent}/>
     if(this.state.products && this.props.auth){
@@ -52,6 +62,7 @@ class ShoppingList extends Component {
         <div>
         {this.favorites()}
         {products}
+        {this.mailButton()}
         </div>
       )
     } return <h3>Loading products...</h3>

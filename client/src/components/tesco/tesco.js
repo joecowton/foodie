@@ -61,16 +61,6 @@ class Tesco extends Component {
       })
   }
 
-  emailList = emailList => {
-    fetch('/api/fishywishy/')
-    .then(response => console.log(response));
-  }
-
-  mailButton() {
-    return (<button className="btn btn-primary" onClick={() => this.emailList()}> Email your shopping list! </button>
-    )
-  }
-
   tescoFilterArrangement() {
     const tescoCategories = ['vegan', 'vegetarian', 'dairy free', 'gluten free', 'low fat']
     const tescoCategoryLinks = tescoCategories.map(category => {
@@ -91,7 +81,7 @@ class Tesco extends Component {
           <input id="searchFilter" placeholder="search for products..." type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
           {this.tescoFilterArrangement()}
           <Products products={this.state.tescoData} />
-          {this.mailButton()}
+    
         </div>
 
       )
