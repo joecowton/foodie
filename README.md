@@ -25,7 +25,7 @@ I want to be able to use google account for log in
 
 - Able to choose product (click/hover)
 
-- User sign-in 
+- User sign-in
 
 
 
@@ -90,3 +90,13 @@ I want to approve major shop partner signup
 So that the order of app is kept  
 I want to delete void profiles
 ```
+
+
+## Our Tech Stack
+
+### MongoDB - Mongoose
+
+In order to manage data for 'Foodeals', we opted to use MongoDB at the back-end. One of our greatest motivations for choosing Mongo was the ability to have a share database through mLab. As a result, as a team, we would all be working off of the same dataset thus ensuring that each build iteration on different branches results in minimal conflicts.
+Another reason for choosing Mongo is that even though at this point in time, our application is fairly simple in its complexity, Mongo enables the simplifying of complex data models and is significantly faster than working with MySQL for example.
+Being a non-relational database, we did encounter certain issues when creating relationships between 'products' and 'users' but quickly found our way around them.
+Mongoose was used as the Object Document Mapper(ODM). This enabled us to define schemas with strongly typed data, mapped onto our DB. This provided a large amount of functionality around creating and working with our schemas.
