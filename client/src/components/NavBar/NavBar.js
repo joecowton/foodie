@@ -30,7 +30,7 @@ class NavBar extends Component {
       <div>
         <nav className="NavBar" >
           <div className="navbar navbar-expand-sm navbar-dark ">
-            <Link className="navbar-brand" to="/">Foodeals</Link>
+            <Link className="navbar-brand" to="/">fooDeals</Link>
             <Link className="navbar-brand" to="/tesco"> Tesco </Link>
             {this.renderContent()}
             {this.user()}
