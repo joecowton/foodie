@@ -11,12 +11,8 @@ class List extends Component {
     super(props);
     this.state = {
       hide: true
-
     }
-
-    }
-
-
+  }
 
     removeFromlist = (product) => {
       // <ShoppingList  prod={product.id}/>
@@ -29,29 +25,27 @@ class List extends Component {
       .catch(function(error) {
       });
       this.setState({hide: false});
-
     }
 
   render(){
     return(
        <div>
-       <ToggleDisplay show={this.state.hide}>
-      <div className='Product'>
-      <br/>
-      <img style={{width: 200, height: 200}} src={this.props.image} alt={"product"}></img>
-      <p>{this.props.name}</p>
-      <p>£{this.props.price} / {this.props.quantity}</p>
-      <p>{this.props.description}</p>
-      {/* <p>Date: {props.date}</p> */}
-      <button onClick={() => this.removeFromlist(this.props)}>Remove from shopping list</button>
-      <br/>
-      </div>
-      </ToggleDisplay>
+        <ToggleDisplay show={this.state.hide}>
+          <div className='Product'>
+          <br/>
+          <img style={{width: 200, height: 200}} src={this.props.image} alt={"product"}></img>
+          <p>{this.props.name}</p>
+          <p>£{this.props.price} / {this.props.quantity}</p>
+          <p>{this.props.description}</p>
+          {/* <p>Date: {props.date}</p> */}
+          <button onClick={() => this.removeFromlist(this.props)}>Remove from shopping list</button>
+          <br/>
+          </div>
+        </ToggleDisplay>
       </div>
 
     )
-  }
-
+    }
   }
 
   function mapStateToProps({auth}) {
