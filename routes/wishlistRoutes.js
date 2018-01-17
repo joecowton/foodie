@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Product = mongoose.model('products');
 const User= mongoose.model('users');
+
 module.exports = app => {
   app.post('/api/addwishlist', function(req, res){
     req.user.product_id.push(req.body.id);

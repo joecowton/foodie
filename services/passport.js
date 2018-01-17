@@ -36,9 +36,9 @@ passport.use(
 
 
       const existingUser = await User.findOne({ googleID: profile.id })
-      // if(existingUser) {
-      //   return done(null, existingUser);
-      // }
+      if(existingUser) {
+        return done(null, existingUser);
+      }
       const user = await new User(
         {
           googleID: profile.id,

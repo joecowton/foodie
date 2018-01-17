@@ -27,8 +27,8 @@ class NavBar extends Component {
 
   render() {
     return(
-      <div>
-        <nav className="NavBar" >
+      <div class="banner">
+        <nav className="nav">
           <div className="navbar navbar-expand-sm navbar-dark ">
             <Link className="navbar-brand" to="/">fooDeals</Link>
             <Link className="navbar-brand" to="/tesco"> Tesco </Link>
