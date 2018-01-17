@@ -22,8 +22,8 @@ class Product extends Component {
       });
     }
 
-    <div className='Product'>
-    <img style={{width: 165, height: 165}} src={props.image} alt={"product"}></img>
+    <div className="Product">
+      <img style={{width: 165, height: 165}} src={props.image} alt={"product"}></img>
       <br />
       {props.name}<br />
       £{props.price} for {props.quantity}<br />
@@ -32,5 +32,6 @@ class Product extends Component {
     </div>
   )
 };
+
 
 export default Product;
