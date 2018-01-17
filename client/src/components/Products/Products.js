@@ -18,8 +18,8 @@ class Products extends Component {
             name={product.name}
             quantity={product.UnitQuantity}
             price={product.price}
-            description={product.description ? product.description[0] : "Sorry! No Description Available"}
-            // date={product.expiryDate}
+            description={product.PromotionDescription}
+            date={product.expiryDate}
             key={product.id}
           />
           </div>

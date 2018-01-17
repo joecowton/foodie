@@ -29,7 +29,7 @@ class Product extends Component {
         <br />
         {this.props.name}<br />
         £{this.props.price} for {this.props.quantity}<br />
-        {this.props.description} before {this.props.date}<br />
+        {this.props.description}, {this.props.date}<br />
         <button onClick={() => this.addToWishlist(this.props)}>Add to shopping list</button>
       </div>
     )
