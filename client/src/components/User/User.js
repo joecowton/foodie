@@ -31,6 +31,7 @@ class User extends Component {
             <p>Diet: {this.state.diet}</p>
             <button className="vegan" onClick={()=> {this.addToDiet("vegan")}}>Vegan</button>
             <button className="vegetarian" onClick={()=> {this.addToDiet("vegeterian")}}>Vegetarian</button>
+            <button className="gluten-free" onClick={()=> {this.addToDiet("gluten-free")}}>Gluten Free</button>
         </div>
         )
       }

@@ -9,6 +9,7 @@ const Product = (props) => {
         id: `${product.id}`
     })
     .then(function(response) {
+
     })
     .catch(function(error) {
     });
