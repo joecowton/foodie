@@ -10,7 +10,6 @@ class Products extends Component {
     }
 
     products(){
-
       const list = this.props.products.map( product => {
         return (
           <div>
