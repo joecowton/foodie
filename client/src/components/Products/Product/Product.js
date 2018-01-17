@@ -32,8 +32,7 @@ class Product extends Component {
       <p>£{this.props.price} / {this.props.quantity}</p>
       <p>{this.props.description}</p>
       {/* <p>Date: {props.date}</p> */}
-      <button onClick={() => {this.addToWishlist(this.props)
-                              this.props.fetch()}}>Add to shopping list</button>
+      <button onClick={() => this.addToWishlist(this.props)}>Add to shopping list</button>
       <br/>
       </div>
     )

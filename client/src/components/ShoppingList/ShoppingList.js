@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Products from '../Products/Products';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
+
 
 
 class ShoppingList extends Component {
@@ -8,7 +10,8 @@ class ShoppingList extends Component {
     super(props);
     this.state = {
       products: null,
-      list: []
+      list: [],
+      userID: null
     }
     this.favorites = this.favorites.bind(this)
   }
@@ -17,10 +20,9 @@ class ShoppingList extends Component {
     console.log("HEREEEEEEEEEEEE")
     fetch('/api/products')
       .then(data => data.json())
-      .then(products => {
-        console.log("sdgsdg",products)
-        this.setState({products})
-      });
+      .then(products => this.setState({products})
+      );
+      this.props.fetchUser();
     }
 
   favorites = () => {
@@ -37,7 +39,7 @@ class ShoppingList extends Component {
   }
 
   render(){
-    console.log("YESSSSSSSS", this.props.prod)
+    console.log("USER ID",this.state.userID);
     const products = <Products products={this.state.list} />
     if(this.state.products && this.props.auth){
       return (
@@ -55,4 +57,4 @@ function mapStateToProps({auth}) {
 }
 
 
-export default connect(mapStateToProps) (ShoppingList);
+export default connect(mapStateToProps, actions) (ShoppingList);

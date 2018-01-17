@@ -22,13 +22,11 @@ class Products extends Component {
             description={product.description ? product.description[0] : "Sorry! No Description Available"}
             // date={product.expiryDate}
             key={product.id}
-            fetch={this.props.fetch}
           />
           </div>
         )
       });
-      const fetch = <Product fetch={this.props.fetch} />
-      return <div>{list}{fetch}</div>
+      return <div>{list}</div>
     };
 
     render() {
