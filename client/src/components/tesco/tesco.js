@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import Products from '../Products/Products';
 
 class Tesco extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       tescoData: null
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     var that = [];
     fetch('/api/products/default')
       .then(data => data.json())
       .then(tescoData => {
-         tescoData.forEach( data => {
-          if(data.PromotionDescription){
+        tescoData.forEach(data => {
+          if (data.PromotionDescription) {
             that.push(data)
           }
-        this.setState({tescoData : that})
+          this.setState({ tescoData: that })
         })
       })
   }
@@ -28,18 +28,19 @@ class Tesco extends Component {
     e.preventDefault();
     var searchFilter = e.target.value;
     // dont search unless 3 characters have been entered
-    if(searchFilter.length < 3){
+    if (searchFilter.length < 3) {
       return;
     }
     fetch('/api/products/' + searchFilter)
       .then(data => data.json())
       .then(tescoData => {
-        tescoData.forEach( data => {
-         if(data.PromotionDescription){
-           that.push(data)
-         }
-        this.setState({
-          tescoData: that})
+        tescoData.forEach(data => {
+          if (data.PromotionDescription) {
+            that.push(data)
+          }
+          this.setState({
+            tescoData: that
+          })
         })
       })
   }
@@ -49,19 +50,30 @@ class Tesco extends Component {
     fetch('/api/products/' + searchFilter)
       .then(data => data.json())
       .then(tescoData => {
-        tescoData.forEach( data => {
-         if(data.PromotionDescription){
-           that.push(data)
-         }
-        this.setState({
-          tescoData: that})
+        tescoData.forEach(data => {
+          if (data.PromotionDescription) {
+            that.push(data)
+          }
+          this.setState({
+            tescoData: that
+          })
         })
       })
   }
 
-  tescoFilterArrangement(){
-    const tescoCategories = ['vegan', 'vegetarian', 'dairy free', 'gluten free', 'low fat' ]
-    const tescoCategoryLinks = tescoCategories.map( category => {
+  emailList = emailList => {
+    fetch('/api/fishywishy/')
+    .then(response => console.log(response));
+  }
+
+  mailButton() {
+    return (<button className="btn btn-primary" onClick={() => this.emailList()}> Email your shopping list! </button>
+    )
+  }
+
+  tescoFilterArrangement() {
+    const tescoCategories = ['vegan', 'vegetarian', 'dairy free', 'gluten free', 'low fat']
+    const tescoCategoryLinks = tescoCategories.map(category => {
       return (
         <button className="btn btn-success quickSearch" onClick={() => this.tescoFilter(category)}>{category}
         </button>
@@ -70,17 +82,19 @@ class Tesco extends Component {
     return <div>{tescoCategoryLinks}</div>
   }
 
-  render(){
-    if(!this.state.tescoData){
+  render() {
+    if (!this.state.tescoData) {
       return <h4>TescoProducts Loading...</h4>
-    } else{
-      return(
+    } else {
+      return (
         <div>
           <label className="searchLabel" >what would you like to search for?</label>
-          <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
+          <input id="searchFilter" type="text" className="text-center form-control" name="type" onChange={this.searchText} /><br />
           {this.tescoFilterArrangement()}
-          <Products products={this.state.tescoData}/>
+          <Products products={this.state.tescoData} />
+          {this.mailButton()}
         </div>
+        
       )
     }
   }
