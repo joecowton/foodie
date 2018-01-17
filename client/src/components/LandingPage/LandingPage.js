@@ -67,14 +67,13 @@ class LandingPage extends Component {
         <button key={counter} className="btn btn-success quickSearch" onClick={() => {
             this.filter(category)
             this.setCategory(category)
-          } }>
-        {category}
+          }}>
+          {category}
         </button>
       )
     });
     return <div>{categoryLinks}</div>
   }
-
 
   searchByText(event){
     event.preventDefault();
@@ -110,7 +109,6 @@ class LandingPage extends Component {
           <button key="price-asc-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
           <br/>
           <div>
-            <br/>
             {this.categoryArrangement()}
           </div>
           <br/>
