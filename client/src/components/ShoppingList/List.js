@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import './Product.css';
-import ShoppingList from './../../ShoppingList/ShoppingList';
+import * as actions from '../../actions';
+// import './List.css';
 
-
-class Product extends Component {
+class List extends Component {
   constructor(props){
     super(props);
+    
     }
 
 
-    addToWishlist = (product) => {
+
+    removeFromlist = (product) => {
       // <ShoppingList  prod={product.id}/>
-      axios.post('/api/addwishlist', {
-          id: this.props.id
+      axios.post('/api/deleteitem', {
+          id: `${product.id}`
       })
       .then(function(response) {
+        console.log("DELETE RESPONSE",response);
       })
       .catch(function(error) {
       });
@@ -31,7 +33,7 @@ class Product extends Component {
       <p>£{this.props.price} / {this.props.quantity}</p>
       <p>{this.props.description}</p>
       {/* <p>Date: {props.date}</p> */}
-      <button onClick={() => this.addToWishlist(this.props)}>Add to shopping list</button>
+      <button onClick={() => this.removeFromlist(this.props)}>Remove from shopping list</button>
       <br/>
       </div>
     )
@@ -39,4 +41,8 @@ class Product extends Component {
 
   }
 
-export default Product;
+  function mapStateToProps({auth}) {
+    return { auth }
+  }
+
+  export default connect(mapStateToProps, actions) (List);

@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import List from './List';
+import axios from 'axios';
 
-import Product from './Product/Product';
 
-class Products extends Component {
+class ShopList extends Component {
   constructor(props){
     super(props);
     this.products = this.products.bind(this);
-    }
+  }
 
     products(){
       const list = this.props.products.map( product => {
         return (
           <div>
-          <Product
+          <List
             id={product.id}
             image={product.image}
             name={product.name}
@@ -25,7 +26,8 @@ class Products extends Component {
           </div>
         )
       });
-      return <div>{list}</div>
+      const remount= this.props.remount;
+      return <div>{list}{remount}</div>
     };
 
     render() {
@@ -37,4 +39,5 @@ class Products extends Component {
 
   }
 }
-  export default Products
+
+export default ShopList

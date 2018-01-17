@@ -13,6 +13,7 @@ class NavBar extends Component {
       default:
        return (
          <div>
+           <Link className="navbar-brand" to="/shoppinglist"> Shopping List </Link>
            <Link className="navbar-brand" to="/user"> Profile </Link>
            <a className="navbar-brand" href="/api/logout"> Logout </a>
          </div>

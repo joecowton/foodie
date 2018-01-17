@@ -94,7 +94,8 @@ class LandingPage extends Component {
   }
 
   render() {
-
+    const productsList = <Products products={this.state.productsData}/>
+    const selectionList = <Products products={this.state.selection}/>
     if(!this.state.productsData){
       return <h3>Loading products...</h3>
     } else {
