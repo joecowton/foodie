@@ -12,6 +12,13 @@ class User extends Component {
     }
   }
 
+  componentDidMount() {
+    axios.get('/api/current_user')
+      .then(user => {
+        this.setState({ diet: user.data.diet })
+      })
+  }
+
   addToDiet(diet){
     var self = this
     axios.put('/api/user/updateDiet/',{
