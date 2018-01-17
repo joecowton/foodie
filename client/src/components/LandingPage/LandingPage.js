@@ -100,8 +100,9 @@ class LandingPage extends Component {
       return <h3>Loading products...</h3>
     } else {
       return (
-        <div class="Landing-Page">
-         <input type="text" placeholder=" search for product ... " onChange={this.searchByText} /><br />
+        <div className="Landing-Page">
+
+         <input id="search-filter" type="text" placeholder=" search for product ... " onChange={this.searchByText} /><br />
           <br />
           <button className="btn quickSearch" onClick={ () =>
               this.remountComponent('/api/products') }> expiry date </button>

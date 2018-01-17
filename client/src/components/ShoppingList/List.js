@@ -3,6 +3,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import ToggleDisplay from 'react-toggle-display';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 // import './List.css';
 
@@ -14,18 +16,40 @@ class List extends Component {
     }
   }
 
-    removeFromlist = (product) => {
-      // <ShoppingList  prod={product.id}/>
-      axios.post('/api/deleteitem', {
-          id: `${product.id}`
-      })
-      .then(function(response) {
-        console.log("DELETE RESPONSE",response);
-      })
-      .catch(function(error) {
+  removeFromlist = (product) => {
+    // <ShoppingList  prod={product.id}/>
+    axios.post('/api/deleteitem', {
+        id: `${product.id}`
+    })
+    .then(function(response) {
+      console.log("DELETE RESPONSE",response);
+    })
+    .catch(function(error) {
+    });
+    this.setState({hide: false});
+  }
+
+  createNotification = (type) => {
+  switch (type) {
+    default:
+      break;
+    case 'info':
+      NotificationManager.info('Filter by all!');
+      break;
+    case 'success':
+      NotificationManager.success('Successfully added to list');
+      break;
+    case 'warning':
+      NotificationManager.warning('Warning message');
+      break;
+    case 'error':
+      NotificationManager.error('Error message', 'Click me!', 5000, () => {
+        alert('callback');
       });
-      this.setState({hide: false});
+      break;
     }
+  };
+
 
   render(){
     return(
@@ -39,9 +63,11 @@ class List extends Component {
           £{this.props.price} for {this.props.quantity}
           <br />
           {this.props.description}
-          {/* <p>Date: {props.date}</p> */}
-          <button onClick={() => this.removeFromlist(this.props)}>Remove from shopping list</button>
-          <br/>
+          <button className='btn btn-danger'
+            onClick={() => {this.createNotification('warning')
+            this.removeFromlist(this.props)}}>Remove From List
+          </button>
+          <NotificationContainer/>
           </div>
         </ToggleDisplay>
       </div>

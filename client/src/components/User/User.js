@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import './User.css';
 
 
 class User extends Component {
   constructor(props){
     super(props);
     this.state = {
-       diet: "none"
+       diet: ""
     }
   }
 
@@ -27,12 +28,12 @@ class User extends Component {
         <div className='User'>
           <br/>
           <p><img className="user-image" style={{width: 250, height: 250}} src={this.props.auth.image}alt="avatar"></img></p>
-          <p>Name: {this.props.auth.name}<br/>
-          Email: {this.props.auth.email}</p>
-          <p>Diet: {this.state.diet}<br/>
-          <button className="vegan" onClick={()=> {this.addToDiet("vegan")}}>Vegan</button>
-          <button className="vegetarian" onClick={()=> {this.addToDiet("vegeterian")}}>Vegetarian</button>
-          <button className="gluten-free" onClick={()=> {this.addToDiet("gluten-free")}}>Gluten Free</button>
+          <p>{this.props.auth.name}</p>
+          <p>{this.props.auth.email}</p>
+          <p>{this.state.diet}<p/>
+          <button className="btn btn-danger" onClick={()=> {this.addToDiet("Vegan")}}>Vegan</button>
+          <button className="btn btn-danger" style={{margin: 5}} onClick={()=> {this.addToDiet("Vegetarian")}}>Vegetarian</button>
+          <button className="btn btn-danger" onClick={()=> {this.addToDiet("Gluten-Free")}}>Gluten Free</button>
           </p>
         </div>
         )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Products from '../Products/Products';
+import './tesco.css';
 
 class Tesco extends Component {
   constructor(props) {
@@ -81,7 +82,7 @@ class Tesco extends Component {
           <input id="searchFilter" placeholder="search for products..." type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
           {this.tescoFilterArrangement()}
           <Products products={this.state.tescoData} />
-    
+
         </div>
 
       )

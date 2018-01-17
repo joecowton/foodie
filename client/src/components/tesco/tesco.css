@@ -1,14 +1,11 @@
-
-
-
-.search-filter {
+.searchFilter {
   margin: 5px 5px;
   box-shadow:2px 5px 5px rgba(0, 0, 0, 0.5);
 
 }
 
 @media (min-width:500px){
-  .search-filter {
+  .Product {
     width:350px;
   }
 }
