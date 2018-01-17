@@ -1,15 +1,13 @@
 .Product {
   text-align: center;
-  background: linear-gradient(white, white, white); /* Standard syntax */
+  background: white;
   width: 50%;
-  /* background: linear-gradient(gray, white, gray); Standard syntax */
-  height: 320px;
-  width: 3000px;
+  height: 350px;
+  width: 300px;
   color: green;
-  /* margin: 16px auto; */
   margin: 10px;
   box-shadow:2px 5px 5px rgba(0, 0, 0, 0.5);
-  padding: 15px;
+  padding: 20px;
   float: left;
   font-size: 17px;
   border-radius: 10px;

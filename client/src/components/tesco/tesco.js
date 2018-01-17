@@ -79,8 +79,11 @@ class Tesco extends Component {
     } else {
       return (
         <div>
-          <input id="searchFilter" placeholder="search for products..." type="text" className="text-center form-control" name="type" onChange={this.searchText}/><br />
+          <br/>
+          <input id="searchFilter" placeholder="search for products..." type="text" className="text-center" name="type" onChange={this.searchText}/><br />
+          <br/>
           {this.tescoFilterArrangement()}
+          <br/>
           <Products products={this.state.tescoData} />
 
         </div>

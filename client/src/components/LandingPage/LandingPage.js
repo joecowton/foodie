@@ -102,7 +102,8 @@ class LandingPage extends Component {
     } else {
       return (
         <div className="Landing-Page">
-         <input id="search-filter" type="text" placeholder=" search for product ... " onChange={this.searchByText} /><br />
+          <br/>
+          <input id="search-filter" type="text" placeholder=" search for product ... " onChange={this.searchByText} /><br />
           <br />
           <button key="expiry-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products') }> expiry date </button>
           <button key="price-desc-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/decending') }> price descending </button>
@@ -110,6 +111,7 @@ class LandingPage extends Component {
           <br/>
           <div>
             {this.categoryArrangement()}
+          <br/>
           </div>
           <br/>
           <Products products={this.state.selection}/>
