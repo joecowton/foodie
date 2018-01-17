@@ -9,13 +9,17 @@ class NavBar extends Component {
       case null:
         return;
       case false:
-        return <a className="navbar-brand" href="/auth/google"> Sign In With Google </a>
+        return <a className="nav navbar-nav navbar-right" href="/auth/google"> Sign In With Google </a>
       default:
        return (
-         <div>
-           <Link className="navbar-brand" to="/shoppinglist"> Shopping List </Link>
-           <Link className="navbar-brand" to="/user"> Profile </Link>
-           <a className="navbar-brand" href="/api/logout"> Logout </a>
+         <div class="navbar navbar-fixed-top navbar-custom ">
+           <div class="container">
+             <a href="/shoppinglist"><img src="./images/Shopping-Cart-red.png" class="img-responsive" width="100" padding="100"/></a>
+             <Link className="navbar-brand" to="/user"> Profile </Link>
+               <ul class="nav navbar-nav pull-right">
+                 <a className="navbar-brand navbar-right" href="/api/logout"> Logout </a>
+              </ul>
+           </div>
          </div>
        )
     }
@@ -30,10 +34,15 @@ class NavBar extends Component {
       <div>
         <nav className="NavBar" >
           <div className="navbar navbar-expand-sm navbar-dark ">
-            <Link className="navbar-brand" to="/">fooDeals</Link>
-            <Link className="navbar-brand" to="/tesco"> Tesco </Link>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/"><img src="./images/foodie.png" class="img-responsive" width="100" padding="100"/></a></li>
+              <li><a href="/tesco"><img src="./images/tesco.png" class="img-responsive" width="100"/></a></li>
+            </ul>
+            <div class="nav navbar-nav navbar-right">
+
             {this.renderContent()}
             {this.user()}
+          </div>
           </div>
         </nav>
       </div>

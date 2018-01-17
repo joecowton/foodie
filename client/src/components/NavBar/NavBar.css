@@ -32,3 +32,10 @@
     width:350px;
   }
 }
+
+div#nav{
+  text-align: center;
+}
+div#nav ul{
+  display: inline-block;
+}
