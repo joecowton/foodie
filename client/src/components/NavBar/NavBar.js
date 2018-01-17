@@ -26,7 +26,6 @@ class NavBar extends Component {
 
   render() {
     return(
-<<<<<<< HEAD
       <nav className="NavBar">
         <div className="navbar navbar-expand-sm navbar-dark bg-secondary mb-5">
           <Link className="navbar-brand" to="/">Foodie</Link>
@@ -36,18 +35,7 @@ class NavBar extends Component {
           {this.user()}
         </div>
       </nav>
-=======
-      <div>
-        <nav className="NavBar" >
-          <div className="navbar navbar-expand-sm navbar-dark bg-secondary mb-5">
-            <Link className="navbar-brand" to="/">Foodeals</Link>
-            <Link className="navbar-brand" to="/tesco"> Tesco </Link>
-            {this.renderContent()}
-            {this.user()}
-          </div>
-        </nav>
-      </div>
->>>>>>> master
+
     )
   }
 }
