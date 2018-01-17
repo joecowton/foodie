@@ -62,8 +62,9 @@ class LandingPage extends Component {
   }
 
   render() {
-    const productsList = <Products products={this.state.productsData} />
-    const selectionList = <Products products={this.state.selection} />
+    const productsList = <Products products={this.state.productsData} fetch={this.props.fetch}/>
+    const selectionList = <Products products={this.state.selection} fetch={this.props.fetch}/>
+    console.log("LANDING PAGE FETCH",this.props)
 
     if(!this.state.productsData){
       return <h3>Loading products...</h3>
