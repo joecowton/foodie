@@ -34,9 +34,9 @@ class List extends Component {
 
   render(){
     return(
-
+       <div>
+       <ToggleDisplay show={this.state.hide}>
       <div className='Product'>
-      <ToggleDisplay show={this.state.hide}>
       <br/>
       <img style={{width: 200, height: 200}} src={this.props.image} alt={"product"}></img>
       <p>{this.props.name}</p>
@@ -45,6 +45,7 @@ class List extends Component {
       {/* <p>Date: {props.date}</p> */}
       <button onClick={() => this.removeFromlist(this.props)}>Remove from shopping list</button>
       <br/>
+      </div>
       </ToggleDisplay>
       </div>
 
