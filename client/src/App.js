@@ -8,6 +8,7 @@ import ShoppingList from './components/ShoppingList/ShoppingList';
 import Tesco from './components/tesco/tesco';
 import { connect } from 'react-redux';
 import * as actions from './actions';
+import Alerts from './components/alerts/Alerts'
 
 class App extends Component {
 
@@ -21,12 +22,14 @@ class App extends Component {
     const tescoApi = () =>  <Tesco />
     const landingpage = () => <LandingPage fetch={this.props.fetchUser} />
     const shoppingList = () => <ShoppingList />
+    const alerts = () => <Alerts />
 
     return (
       <div className="App">
         <div className ="container">
           <BrowserRouter>
             <div>
+              {alerts}
               {navBar}
               <Route exact path="/" component={landingpage}/>
               <Route exact path="/tesco" component={tescoApi}/>
