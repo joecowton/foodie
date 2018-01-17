@@ -5,6 +5,11 @@
     padding: 10px;
 }
 
+.login-button {
+  width:20px;
+  height:20px;
+}
+
 @media (min-width:500px){
   .Product {
     width:350px;

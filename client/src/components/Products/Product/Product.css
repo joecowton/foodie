@@ -1,27 +1,30 @@
 .Product {
+  text-align: center;
   background: linear-gradient(white, white, white); /* Standard syntax */
   width: 50%;
   /* background: linear-gradient(gray, white, gray); Standard syntax */
-  height: 350px;
-  width: 300px;
-  color: black;
+  height: 320px;
+  width: 3000px;
+  color: green;
   /* margin: 16px auto; */
-  margin: 5px;
-  /* border: 1px solid #bbb; */
-  box-shadow: 0 2px 2px #fff;
-  padding: 10px;
+  margin: 10px;
+  box-shadow:2px 5px 5px rgba(0, 0, 0, 0.5);
+  padding: 15px;
   float: left;
+  font-size: 17px;
+  border-radius: 10;
 }
 
 .quickSearch {
   margin: 5px 5px;
+  box-shadow:2px 5px 5px rgba(0, 0, 0, 0.5);
+
 }
 
 .searchLabel {
   color: forestgreen;
   font-size: 20pt;
-
-
+  box-shadow:2px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width:500px){
