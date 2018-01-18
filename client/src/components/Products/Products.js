@@ -9,9 +9,10 @@ class Products extends Component {
     }
 
     products(){
+      var counter = 0;
       const list = this.props.products.map( product => {
         return (
-          <div>
+        <div>
           <Product
             id={product.id}
             image={product.image}
@@ -20,9 +21,9 @@ class Products extends Component {
             price={product.price}
             description={product.PromotionDescription}
             date={product.expiryDate}
-            key={product.id}
+            key={counter += 1}
           />
-          </div>
+        </div>
         )
       });
       return <div>{list}</div>

@@ -59,20 +59,21 @@ class LandingPage extends Component {
   }
 
   categoryArrangement(){
+    var counter = 0
     const categories = ['all', 'dairy', 'meat', 'vegetables', 'fruits', 'desserts', 'snacks'];
     const categoryLinks = categories.map( category => {
+      counter += 1;
       return (
-        <button className="btn btn-success quickSearch" onClick={() => {
+        <button key={counter} className="btn btn-success quickSearch" onClick={() => {
             this.filter(category)
             this.setCategory(category)
-          } }>
-        {category}
+          }}>
+          {category}
         </button>
       )
     });
     return <div>{categoryLinks}</div>
   }
-
 
   searchByText(event){
     event.preventDefault();
@@ -81,8 +82,8 @@ class LandingPage extends Component {
     this.state.productsData.forEach(element => {
       var keys = Object.keys(element)
       keys.forEach(function(key) {
-        if(typeof element[key] == "string"){
-          if(element[key].includes(searchPhrase) && element != selectedList[selectedList.length-1]){
+        if(typeof element[key] === "string"){
+          if(element[key].includes(searchPhrase) && element !== selectedList[selectedList.length-1]){
             selectedList.push(element)
           }
         }
@@ -101,18 +102,13 @@ class LandingPage extends Component {
     } else {
       return (
         <div className="Landing-Page">
-
          <input id="search-filter" type="text" placeholder=" search for product ... " onChange={this.searchByText} /><br />
           <br />
-          <button className="btn quickSearch" onClick={ () =>
-              this.remountComponent('/api/products') }> expiry date </button>
-          <button className="btn quickSearch" onClick={ () =>
-              this.remountComponent('/api/products/price/decending') }> price descending </button>
-          <button className="btn quickSearch" onClick={ () =>
-              this.remountComponent('/api/products/price/ascending') }> price ascending </button>
+          <button key="expiry-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products') }> expiry date </button>
+          <button key="price-desc-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/decending') }> price descending </button>
+          <button key="price-asc-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
           <br/>
           <div>
-            <br/>
             {this.categoryArrangement()}
           </div>
           <br/>

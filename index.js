@@ -4,7 +4,6 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser')
 
-
 require('./models/Product')
 require('./models/User')
 
@@ -37,8 +36,6 @@ require('./routes/productRoutes')(app);
 require('./routes/userRoutes')(app);
 require('./routes/wishlistRoutes')(app);
 require('./routes/notificationRoutes')(app);
-
-
 
 
 const PORT = process.env.PORT || 5000;

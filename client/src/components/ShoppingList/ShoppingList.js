@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 
-
 class ShoppingList extends Component {
   constructor(props){
     super(props);
@@ -24,24 +23,23 @@ class ShoppingList extends Component {
       this.props.fetchUser();
     }
 
-    remountComponent(){
-      fetch('/api/products')
-        .then(data => data.json())
-        .then(products => this.setState({products})
-        );
-        this.props.fetchUser();
-    }
+  remountComponent(){
+    fetch('/api/products')
+      .then(data => data.json())
+      .then(products => this.setState({products})
+      );
+      this.props.fetchUser();
+  }
 
   favorites = () => {
-    const list = [];
     return (
       this.props.auth.product_id.forEach( id => {
-      this.state.products.forEach( product => {
-        if(product.id === id) {
-          this.state.list.push(product);
-        }
+        this.state.products.forEach( product => {
+          if(product.id === id) {
+            this.state.list.push(product);
+          }
+        })
       })
-    })
     )
   }
 
@@ -60,14 +58,14 @@ class ShoppingList extends Component {
     if(this.state.products && this.props.auth){
       return (
         <div>
-        {this.favorites()}
-        {products}
-        {this.mailButton()}
+          {this.favorites()}
+          {products}
+          {this.mailButton()}
         </div>
-      )
-    } return <h3>Loading products...</h3>
+      )}
+      return <h3>Loading products...</h3>
     }
-}
+  }
 
 function mapStateToProps({auth}) {
   return { auth }
