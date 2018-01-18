@@ -37,6 +37,11 @@ We used Node.js and Express to run our server and provide routing to and from ou
 
 The front end was made with react for the use of multi-faceted library, the buttons and the actions on the page are reactive for as much of single-page app behaviour as possible.In order to manage the states on the app we used Redux to call states on the different components. Finally for the routing and rendering different components we used the react-router library, that allows passing of a single component and rendering on a specific route.
 
+
+** Google OAuth**
+
+We use Google OAuth to authenticate users to our application. Throughout the course at Makers Academy we learnt different frameworks and how to authenticate users using an email and password based approach. This time we wanted to challenge ourselves and handle user authentication in a modern way. In fooDeals we use Passport.js which is an authentication middleware for Node.js. It has a comprehensive set of strategies support authentication using Google, Facebook, Twitter, and more. This was a great learning experience of authentication control flow.
+
 ** Mocha - Chai - Enzyme - Sinon **
 
 We have explored the new libraries and tested the rendering of React components on app page. Instead of using Jest, we looked react-only library for testing - Enzyme.    
