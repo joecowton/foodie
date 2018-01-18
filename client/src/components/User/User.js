@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import './User.css';
+import * as actions from '../../actions';
+
 
 
 class User extends Component {
@@ -23,8 +25,9 @@ class User extends Component {
     var self = this
     axios.put('/api/user/updateDiet/',{
         diet: diet
-    }).then((res) =>{
-       self.setState({diet: res.data})
+    }).then(function(response){
+      console.log(response);
+       self.setState({diet: response.data})
     })
   }
 
@@ -55,4 +58,4 @@ function mapStateToProps({auth}) {
 }
 
 
-export default connect(mapStateToProps) (User);
+export default connect(mapStateToProps, actions) (User);

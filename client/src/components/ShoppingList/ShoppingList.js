@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ShopList from './ShopList'
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 
 class ShoppingList extends Component {

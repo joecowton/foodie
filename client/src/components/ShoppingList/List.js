@@ -29,25 +29,8 @@ class List extends Component {
     this.setState({hide: false});
   }
 
-  createNotification = (type) => {
-  switch (type) {
-    default:
-      break;
-    case 'info':
-      NotificationManager.info('Filter by all!');
-      break;
-    case 'success':
-      NotificationManager.success('Successfully added to list');
-      break;
-    case 'warning':
-      NotificationManager.warning('Warning message');
-      break;
-    case 'error':
-      NotificationManager.error('Error message', 'Click me!', 5000, () => {
-        alert('callback');
-      });
-      break;
-    }
+  createNotification(){
+    NotificationManager.error('Item removed from list','','500', this.removeFromlist(this.props));
   };
 
 
@@ -63,9 +46,7 @@ class List extends Component {
           £{this.props.price} for {this.props.quantity}
           <br />
           {this.props.description}
-          <button className='btn btn-danger'
-            onClick={() => {this.createNotification('warning')
-            this.removeFromlist(this.props)}}>Remove From List
+          <button className='btn btn-danger' onClick={() => this.createNotification()}>Remove From List
           </button>
           <NotificationContainer/>
           </div>

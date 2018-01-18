@@ -9,7 +9,9 @@ class NavBar extends Component {
       case null:
         return;
       case false:
+      // <div class="container">
         return <a className="navbar-brand" href="/auth/google"> Sign In With Google </a>
+      // </div>
       default:
        return (
          <div>
