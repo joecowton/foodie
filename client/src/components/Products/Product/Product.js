@@ -25,13 +25,17 @@ class Product extends Component {
     .catch(function(error) {
     });
   }
+  reduceTextLength(name) {
+    return name.substring(0,39)
+    }
+
 
   render(){
     return(
       <div className="Product">
         <img style={{width: 165, height: 165}} src={this.props.image} alt={"product"}></img>
         <br />
-        {this.props.name}
+        {this.reduceTextLength(this.props.name)}
         <br />
         £{this.props.price} for {this.props.quantity}
         <br />
