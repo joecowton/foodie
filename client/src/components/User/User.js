@@ -23,8 +23,9 @@ class User extends Component {
     var self = this
     axios.put('/api/user/updateDiet/',{
         diet: diet
-    }).then((res) =>{
-       self.setState({diet: res.data})
+    }).then(function(response){
+      console.log(response);
+       self.setState({diet: response.data})
     })
   }
 
