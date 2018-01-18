@@ -1,4 +1,4 @@
-# Foodeals App
+# fooDeals
 
 fooDeals is an e-commerce app to search for special offers and close to expired products that are free or heavily discounted. This is intended to bring both value for money to the user and help reduce food wastage. It also provides supermarkets an opportunity to generate revenue from expired or close to expiring goods that might otherwise simply be written off.
 
@@ -15,43 +15,43 @@ npm install
 cd client
 npm install
 ```
-### To run
+#### To run
 
 From the project root directory run: ```npm run dev```
 
 ## Tech Stack
 
-** MongoDB **
+#### MongoDB
 
 To store user and product data we used a MongoDB database hosted on mLab, allowing each member of our team to independently access data. As a near ubiquitous database program we were interested to explore its advantages and disadvantages; previously we had only used the relational database PostgreSQL.
 
-** Mongoose **
+#### Mongoose
 
 Mongoose was used as the Object Document Mapper(ODM). This enabled us to define schemas with strongly typed data, mapped onto our DB. This provided a large amount of functionality around creating and working with our schemas.
 
-** Node.js - Express **
+####  Node.js - Express
 
 We used Node.js and Express to run our server and provide routing to and from our database via Mongoose. Having worked previously with Ruby and Rails, we were keen to explore the possibilities that Node's modular structure had to offer, creating an isomorphic Javascript application, running both client and server-side.
 
-** React - Redux - Router **
+####  React - Redux - Router
 
 The front end was made with react for the use of multi-faceted library, the buttons and the actions on the page are reactive for as much of single-page app behaviour as possible.In order to manage the states on the app we used Redux to call states on the different components. Finally for the routing and rendering different components we used the react-router library, that allows passing of a single component and rendering on a specific route.
 
-** Mocha - Chai - Enzyme - Sinon **
+####  Mocha - Chai - Enzyme - Sinon
 
 We have explored the new libraries and tested the rendering of React components on app page. Instead of using Jest, we looked react-only library for testing - Enzyme.    
 
 ## Challenges
 
-**Architecture of the project: Integrating backend and client servers**
+#### Architecture of the project: Integrating backend and client servers
 
 We set up the project to run on 2 repos for front-end and the-backend. We quickly switched to integrating both servers, using the concurrently library to run both servers in one call.
 
-**Refactoring: extracting small components due to use of different databases**
+#### Refactoring: extracting small components due to use of different databases
 
 We worked with both a mock database created by the team and the Tesco API. Integrating both technologies in the same app using the same 'Products' components was an issue before the routing was set up. Once the project went through a major refactoring, the landing page was separated into two different components (LandingPage and Tesco Page). As the result of that, rendering became easier and the code became more workable for the entire team.
 
-**Filtering Products: setting up selective product ranges, search filters and categories**
+#### Filtering Products: setting up selective product ranges, search filters and categories
 
 We focused on presenting the user with a specific range of products - only the product with special deal offered. to further that we  created a range of filtering methods that allow users to :
  1. search for product by typing in words
@@ -59,15 +59,16 @@ We focused on presenting the user with a specific range of products - only the p
  3. arrange product in ascending/descending order by date, price ect.
 
 
-** Adding products to the shopping list **
+####  Adding products to the shopping list
 
 It was challenging to create a method that sends a request to back-end, adds new value and re-renders the front-end with the new value, all while in a reactive fashion. This was overcome by taking turns at solving the problem as we progressed through the days. This seemingly simple feature was the last one to be implemented, but we feel that we approached it in more than one way to solve it, and have a better understanding a result.
 
-** Testing React components **
+#### Testing React components
+
 
 ## User Stories
 
-### As a User
+#### As a User 
 
 
 ```
