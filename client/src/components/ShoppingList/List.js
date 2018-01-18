@@ -30,7 +30,7 @@ class List extends Component {
   }
 
   createNotification(){
-      NotificationManager.error('Item removed from list');
+    NotificationManager.error('Item removed from list','','500', this.removeFromlist(this.props));
   };
 
 
@@ -46,9 +46,7 @@ class List extends Component {
           £{this.props.price} for {this.props.quantity}
           <br />
           {this.props.description}
-          <button className='btn btn-danger'
-            onClick={() => {this.createNotification()
-            this.removeFromlist(this.props)}}>Remove From List
+          <button className='btn btn-danger' onClick={() => this.createNotification()}>Remove From List
           </button>
           <NotificationContainer/>
           </div>
