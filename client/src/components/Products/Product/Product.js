@@ -13,7 +13,11 @@ class Product extends Component {
     }
 
   createNotification(){
+<<<<<<< HEAD
       NotificationManager.success('Successfully added to list');
+=======
+    NotificationManager.success('Successfully added to list','', 500, this.addToWishlist(this.props));
+>>>>>>> notifications-2
   };
 
   addToWishlist = (product) => {
@@ -38,8 +42,12 @@ class Product extends Component {
         {this.props.description}, {this.props.date}
         <br />
         <button className='btn btn-danger'
+<<<<<<< HEAD
           onClick={() => {this.createNotification()
           this.addToWishlist(this.props)}}>Add to Shopping List
+=======
+          onClick={() => {this.createNotification()}}>Add to Shopping List
+>>>>>>> notifications-2
         </button>
       <NotificationContainer/>
       </div>

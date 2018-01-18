@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import './User.css';
+import * as actions from '../../actions';
+
 
 
 class User extends Component {
@@ -56,4 +58,4 @@ function mapStateToProps({auth}) {
 }
 
 
-export default connect(mapStateToProps) (User);
+export default connect(mapStateToProps, actions) (User);
