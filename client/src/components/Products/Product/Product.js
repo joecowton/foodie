@@ -26,8 +26,11 @@ class Product extends Component {
     });
   }
   reduceTextLength(name) {
-    return name.substring(0,39)
-    }
+    return name.substring(0,38)
+  }
+  removeComma(name) {
+    return name.replace(/,/g, "");
+  }
 
 
   render(){
@@ -39,7 +42,6 @@ class Product extends Component {
         <br />
         £{this.props.price} for {this.props.quantity}
         <br />
-        {this.props.description}, {this.props.date}
         <br />
         <button className='btn btn-danger' onClick={() => {this.createNotification()}}>Add to Shopping List
         </button>
