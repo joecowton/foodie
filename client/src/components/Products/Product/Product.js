@@ -42,6 +42,7 @@ class Product extends Component {
         <br />
         £{this.props.price} for {this.props.quantity}
         <br />
+        {this.removeComma(this.props.description)}, {this.props.date}
         <br />
         <button className='btn btn-danger' onClick={() => {this.createNotification()}}>Add to Shopping List
         </button>
