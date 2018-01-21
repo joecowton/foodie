@@ -67,8 +67,9 @@ We focused on presenting the user with a specific range of products - only the p
 
 It was challenging to create a method that sends a request to back-end, adds new value and re-renders the front-end with the new value, all while in a reactive fashion. This was overcome by taking turns at solving the problem as we progressed through the days. This seemingly simple feature was the last one to be implemented, but we feel that we approached it in more than one way to solve it, and have a better understanding a result.
 
-#### Testing React components
+### DEMO (on youtube)
 
+[![PromotionalVideo](https://i.imgur.com/OuZdBJ5.jpg)](https://www.youtube.com/watch?v=mCtztaA_qU0)
 
 ## User Stories
 
