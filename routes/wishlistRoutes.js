@@ -7,13 +7,6 @@ module.exports = app => {
     req.user.product_id.push(req.body.id);
     req.user.save();
     res.json(req.body.id)
-    // Product.findById(req.body.id).then(product => {
-    //   console.log("product",product)
-    // });
-    // console.log(req.user);
-    // console.log(User.find({}))
-    // Product.find({title: 'Milk'}, (product) => { console.log("product",product) } );
-
   });
 
   app.post('/api/deleteitem', function(req, res){

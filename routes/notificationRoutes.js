@@ -13,21 +13,16 @@ module.exports = app => {
           clientId: '1066350232183-o7epl088l1c6ah7lasrh7slemd4opobl.apps.googleusercontent.com',
           clientSecret: 'q57LBoyPDxNrfYbR3bRkvMqG',
           refreshToken: '1/wYzesYWz7C6Ct6fprRWJTZwNRLX88Lw0fb2s8iQ91-U'
-    
-        //   user: config.mailUser,
-        //   clientId: config.clientId,
-        //   clientSecret: config.clientSecret,
-        //   refreshToken: config.refreshToken
         }
     });
-    
+
     var mailOptions = {
         from: 'fooDeal Team fooDealTeam@gmail.com',
-        to: 'jamielemercier@gmail.com',
+        to: 'cristhiandf94@gmail.com',
         subject: 'Your fooDeal Shopping List',
-        text: 'Hello World!!'
+        text: 'Your shopping list have the following products: '
     }
-    
+
     smtpTransport.sendMail(mailOptions, function (err, res) {
         if(err){
             console.log('Error', err);
@@ -37,8 +32,7 @@ module.exports = app => {
             res.status(200)
         }
         })
-    
-    });
-    
-}
 
+    });
+
+}
