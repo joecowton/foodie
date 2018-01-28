@@ -9,7 +9,6 @@ class Products extends Component {
     }
 
     products(){
-      var counter = 0;
       const list = this.props.products.map( product => {
         return (
         <div>
@@ -21,7 +20,7 @@ class Products extends Component {
             price={product.price}
             description={product.PromotionDescription}
             date={product.expiryDate}
-            key={counter += 1}
+            key={product.id}
           />
         </div>
         )
