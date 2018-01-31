@@ -21,41 +21,41 @@ class User extends Component {
       })
   }
 
-  addToDiet(diet){
+  addToDiet(diet) {
     var self = this
-    axios.put('/api/user/updateDiet/',{
+    axios.put('/api/user/updateDiet/', {
         diet: diet
-    }).then(function(response){
-      console.log(response);
-       self.setState({diet: response.data})
-    })
+    }).then( response => {
+       self.setState({ diet: response.data });
+    });
   }
 
-  render(){
-    if(this.props.auth){
+  render() {
+    let userInfo = <div>
+
+    </div>
+    if(this.props.auth) {
       return (
         <div className='User'>
-          <br/>
-          <p><img className="user-image" style={{width: 250, height: 250}} src={this.props.auth.image}alt="avatar"></img></p>
-          <p>{this.props.auth.name}</p>
-          <p>{this.props.auth.email}</p>
-          <p>{this.state.diet}<p/>
+          <br />
+          <img className="user-image" style={{width: 250, height: 250}} src= { this.props.auth.image }alt="avatar"></img>
+          <p> { this.props.auth.name } </p>
+          <p> { this.props.auth.email } </p>
+          <p> { this.state.diet } </p>
           <button className="btn btn-danger" onClick={()=> {this.addToDiet("Vegan")}}>Vegan</button>
           <button className="btn btn-danger" style={{margin: 5}} onClick={()=> {this.addToDiet("Vegetarian")}}>Vegetarian</button>
           <button className="btn btn-danger" onClick={()=> {this.addToDiet("Gluten-Free")}}>Gluten Free</button>
-          </p>
         </div>
-        )
-      }
-      else {
-        return null;
-      }
+      )
+    } else {
+      return null
+    }
   }
 }
 
-function mapStateToProps({auth}) {
-  return { auth }
+function mapStateToProps({ auth }) {
+  return { auth };
 }
 
 
-export default connect(mapStateToProps, actions) (User);
+export default connect(mapStateToProps, actions)(User);

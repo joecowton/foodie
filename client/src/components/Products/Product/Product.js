@@ -6,16 +6,11 @@ import 'react-notifications/lib/notifications.css';
 
 
 class Product extends Component {
-  constructor(props){
-    super(props);
-    }
-
   createNotification(){
     NotificationManager.success('Successfully added to list','', 500, this.addToWishlist(this.props));
   };
 
   addToWishlist = (product) => {
-    console.log(product)
     axios.post('/api/addwishlist', {
       id: this.props.id
     })
