@@ -21,12 +21,12 @@ class NavBar extends Component {
     }
   }
 
-  user(){
-    return this.props.auth ? 'Logged in as ' + this.props.auth.name : ''
+  user() {
+    return this.props.auth ? 'Logged in as ' + this.props.auth.name : '';
   }
 
   render() {
-    return(
+    return (
       <div className="banner">
         <nav className="nav">
           <div className="navbar navbar-expand-sm navbar-dark ">
@@ -37,7 +37,7 @@ class NavBar extends Component {
           </div>
         </nav>
       </div>
-    )
+    );
   }
 }
 
