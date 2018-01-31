@@ -61,12 +61,12 @@ class LandingPage extends Component {
     event.preventDefault();
     var searchPhrase = event.target.value;
     var selectedList = [];
-    this.state.productsData.forEach(element => {
-      var keys = Object.keys(element)
+    this.state.productsData.forEach(product => {
+      var keys = Object.keys(product)
       keys.forEach(function(key) {
-        if(typeof element[key] === "string"){
-          if(element[key].includes(searchPhrase) && element !== selectedList[selectedList.length-1]){
-            selectedList.push(element)
+        if(typeof product[key] === "string"){
+          if(product[key].includes(searchPhrase) && product !== selectedList[selectedList.length-1]){
+            selectedList.push(product)
           }
         }
       });
