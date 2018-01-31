@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ShopList from './ShopList'
+import ShopList from './shopList/ShopList'
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import 'react-notifications/lib/notifications.css';
@@ -19,24 +19,16 @@ class ShoppingList extends Component {
   componentDidMount(){
     fetch('/api/products')
       .then(data => data.json())
-      .then(products => this.setState({products})
+      .then(data => this.setState({products: data})
       );
       this.props.fetchUser();
     }
-
-  remountComponent(){
-    fetch('/api/products')
-      .then(data => data.json())
-      .then(products => this.setState({products})
-      );
-      this.props.fetchUser();
-  }
 
   favorites = () => {
     return (
       this.props.auth.product_id.forEach( id => {
         this.state.products.forEach( product => {
-          if(product.id === id) {
+          if(product._id === id) {
             this.state.list.push(product);
           }
         })
@@ -55,7 +47,7 @@ class ShoppingList extends Component {
   }
 
   render(){
-    const products = <ShopList products={this.state.list} remount={this.remountComponent}/>
+    const products = <ShopList products={this.state.list} />
     if(this.state.products && this.props.auth){
       return (
         <div>

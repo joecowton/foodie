@@ -19,7 +19,7 @@ class App extends Component {
     const navBar = <NavBar />
     const user = () => <User />
     const tescoApi = () =>  <Tesco />
-    const landingpage = () => <LandingPage fetch={this.props.fetchUser} />
+    const landingpage = () => <LandingPage />
     const shoppingList = () => <ShoppingList />
 
     return (

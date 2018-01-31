@@ -6,7 +6,6 @@ import 'react-notifications/lib/notifications.css';
 
 
 class Product extends Component {
-
   createNotification(){
     NotificationManager.success('Successfully added to list','', 500, this.addToWishlist(this.props));
   };

@@ -26,15 +26,6 @@ passport.use(
       const image = profile.photos[0].value.substring(0,
       profile.photos[0].value.indexOf('?'))
 
-      console.log(profile)
-
-      const newUser = {
-        googleID: profile.id,
-        name: profile.displayName,
-        image: image.url
-      }
-
-
       const existingUser = await User.findOne({ googleID: profile.id })
       if(existingUser) {
         return done(null, existingUser);
