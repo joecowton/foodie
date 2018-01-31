@@ -21,8 +21,6 @@ class ShoppingList extends Component {
       .then(data => data.json())
       .then(data => this.setState({products: data})
       );
-      console.log(this.state.products)
-      console.log("HERE")
       this.props.fetchUser();
     }
 
@@ -37,7 +35,6 @@ class ShoppingList extends Component {
   favorites = () => {
     return (
       this.props.auth.product_id.forEach( id => {
-        console.log(id)
         this.state.products.forEach( product => {
           if(product._id === id) {
             this.state.list.push(product);

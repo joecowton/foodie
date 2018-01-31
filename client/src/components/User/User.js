@@ -31,9 +31,6 @@ class User extends Component {
   }
 
   render() {
-    let userInfo = <div>
-
-    </div>
     if(this.props.auth) {
       return (
         <div className='User'>
