@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ShopList from './ShopList'
+import ShopList from './shopList/ShopList'
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import 'react-notifications/lib/notifications.css';
