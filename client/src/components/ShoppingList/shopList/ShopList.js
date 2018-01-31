@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import List from './List/List';
 
 class ShopList extends Component {
-  constructor(props){
-    super(props);
-    this.products = this.products.bind(this);
-  }
 
     products(){
       const list = this.props.products.map( product => {
