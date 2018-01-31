@@ -22,7 +22,7 @@ class LandingPage extends Component {
   }
 
   componentDidMount(){
-    fetch('/api/products')
+    fetch(this.state.productAPI)
       .then(data => data.json())
       .then(productsData => {
         this.setState({ productsData })
@@ -52,21 +52,12 @@ class LandingPage extends Component {
     })
   }
 
-  setCategory(category){
-    this.setState({
-      currentCategory: category
-    })
-  }
-
   categoryArrangement(){
-    var counter = 0
     const categories = ['all', 'dairy', 'meat', 'vegetables', 'fruits', 'desserts', 'snacks'];
     const categoryLinks = categories.map( category => {
-      counter += 1;
       return (
-        <button key={counter} className="btn btn-success quickSearch" onClick={() => {
+        <button key={category} className="btn btn-success quickSearch" onClick={() => {
             this.filter(category)
-            this.setCategory(category)
           }}>
           {category}
         </button>
@@ -95,8 +86,6 @@ class LandingPage extends Component {
   }
 
   render() {
-    const productsList = <Products products={this.state.productsData}/>
-    const selectionList = <Products products={this.state.selection}/>
     if(!this.state.productsData){
       return <h3>Loading products...</h3>
     } else {
@@ -105,7 +94,7 @@ class LandingPage extends Component {
         <br />
          <input id="search-filter" type="text" placeholder=" search for product ... " onChange={this.searchByText} /><br />
           <br />
-          <button key="expiry-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products') }> expiry date </button>
+          <button key="expiry-key" className="btn quickSearch" onClick={ () => this.remountComponent(this.state.productAPI) }> expiry date </button>
           <button key="price-desc-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/decending') }> price descending </button>
           <button key="price-asc-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
           <br/>
