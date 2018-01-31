@@ -24,14 +24,6 @@ class ShoppingList extends Component {
       this.props.fetchUser();
     }
 
-  remountComponent(){
-    fetch('/api/products')
-      .then(data => data.json())
-      .then(products => this.setState({products})
-      );
-      this.props.fetchUser();
-  }
-
   favorites = () => {
     return (
       this.props.auth.product_id.forEach( id => {
@@ -55,7 +47,7 @@ class ShoppingList extends Component {
   }
 
   render(){
-    const products = <ShopList products={this.state.list} remount={this.remountComponent}/>
+    const products = <ShopList products={this.state.list} />
     if(this.state.products && this.props.auth){
       return (
         <div>

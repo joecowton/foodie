@@ -24,8 +24,7 @@ class ShopList extends Component {
           </div>
         )
       });
-      const remount= this.props.remount;
-      return <div>{list}{remount}</div>
+      return <div>{list}</div>
     };
 
     render() {
