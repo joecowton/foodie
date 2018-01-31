@@ -77,24 +77,24 @@ class LandingPage extends Component {
   }
 
   render() {
-    const products = <Products products={this.state.selection}/>
+    const searchBar = <input id="search-filter" type="text" placeholder=" search for product... " onChange={this.searchByText} />
     const quickSerachButtons = <div>
         <button key="expiry-key" className="btn quickSearch" onClick={ () => this.remountComponent(this.state.productAPI) }> expiry date </button>
         <button key="price-desc-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/decending') }> price descending </button>
         <button key="price-asc-key" className="btn quickSearch" onClick={ () => this.remountComponent('/api/products/price/ascending') }> price ascending </button>
       </div>
+    const products = <Products products={this.state.selection}/>
 
     if(!this.state.productsData){
       return <h3>Loading products...</h3>
     } else {
       return (
         <div className="Landing-Page">
-            <input id="search-filter" type="text" placeholder=" search for product ... " onChange={this.searchByText} /><br />
+          {searchBar}
           <br />
-            {quickSerachButtons}
-            <div>
-              {this.categoryArrangement()}
-            </div>
+          <br />
+          {quickSerachButtons}
+          {this.categoryArrangement()}
           <br />
           {products}
         </div>
