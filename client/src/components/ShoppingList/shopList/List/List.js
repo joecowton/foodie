@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import * as actions from '../../../actions';
+import * as actions from '../../../../actions';
 import ToggleDisplay from 'react-toggle-display';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
